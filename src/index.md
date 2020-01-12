@@ -1,10 +1,10 @@
 ---
 layout: home
-title: A simple starter kit for Eleventy
+title: Hi, I'm Miko.
 postsHeading: Latest posts
 archiveButtonText: See all posts
 socialImage: ''
 ---
-Hylia is a lightweight [Eleventy](https://11ty.io) starter kit with [Netlify CMS](https://www.netlifycms.org/) pre-configured, so that you can one-click install a progressive, accessible blog in minutes. It also gives you a well organised starting point to extend yourself.
+I'm a user-focused developer from Australia with over 10 years of experience building beautiful and accessible designs. I specialise in Design Systems and CSS architecture, and love enabling teams to do the same.
 
-Get started now by [deploying Hylia to Netlify.](https://app.netlify.com/start/deploy?repository=https://github.com/hankchizljaw/hylia&stack=cms)
+Currently the Engineering Lead for the Design Operations team at [Finder.com.au](http://finder.com.au/).
