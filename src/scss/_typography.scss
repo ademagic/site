@@ -8,7 +8,7 @@ body {
 
 h1,
 h2 {
-  @include apply-utility('font', 'cursive');
+  @include apply-utility('font', 'serif');
 }
 
 h1 {
