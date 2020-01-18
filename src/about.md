@@ -1,6 +1,6 @@
 ---
-title: "About me"
-layout: 'layouts/base.njk'
+title: "About Miko"
+layout: 'layouts/page.njk'
 ---
 I'm a user-focused developer from Australia with over 10 years of experience building beautiful and accessible designs. I love enabling teams to build great Design Systems for their users.
 

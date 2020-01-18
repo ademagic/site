@@ -11,6 +11,10 @@
     > * + * {
       margin-left: get-size(500);
     }
+
+    &--footer {
+      justify-content: center;
+    }
   }
 
   &__item {

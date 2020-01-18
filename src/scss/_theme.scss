@@ -8,7 +8,9 @@
   --color-mode: 'light';
   --color-bg: #{get-color('light')};
   --color-bg-glare: #{get-color('light')};
+  --color-bg-dark: #{get-color('primary-shade')};
   --color-text: #{get-color('dark')};
+  --color-text-light: #{get-color('light')};
   --color-text-glare: #{get-color('dark')};
   --color-selection-text: #{get-color('light')};
   --color-selection-bg: #{get-color('dark')};
@@ -22,13 +24,14 @@
 }
 
 @include dark-mode() {
-  --color-bg: #{get-color('dark')};
-  --color-bg-glare: #{get-color('slate')};
+  --color-bg: #{get-color('primary')};
+  --color-bg-glare: #{get-color('primary-shade')};
+  --color-bg-dark: #{get-color('primary-dark')};
   --color-text: #{get-color('light')};
   --color-link: #{get-color('link')};
   --color-selection-text: #{get-color('dark')};
   --color-selection-bg: #{get-color('light')};
-  --color-stroke: #{get-color('slate')};
+  --color-stroke: var(--color-bg-dark);
   --color-theme-primary: #{lighten(get-color('primary'), 50%)};
   --color-theme-primary-glare: #{lighten(get-color('primary-glare'), 50%)};
   --color-action-bg: var(--color-theme-primary-glare);

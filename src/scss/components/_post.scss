@@ -120,20 +120,24 @@
   }
 
   &__footer {
-    background: var(--color-theme-highlight);
+    .inner-wrapper {
+      border-top: 1px solid var(--color-stroke);
+    }
 
-    h2 {
+    h3 {
       flex-shrink: 0;
       margin-right: get-size('base');
       color: var(--color-dark);
     }
 
-    h2 a {
+    h3 a {
       @extend %visually-hidden;
     }
 
     a {
-      background: var(--color-bg);
+      background: var(--color-mid);
+      border-radius: 4px;
+      box-shadow: 0 4px 0 darken(#999, 15%); // fix this
       padding: 0.4rem 0.6rem;
     }
   }
