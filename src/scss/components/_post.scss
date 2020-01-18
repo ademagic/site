@@ -1,6 +1,7 @@
 .post {
   &__body {
     --flow-space: #{get-size(800)};
+    border-top: 1px solid var(--color-stroke);
 
     /**
      * Generic HTML styles 
@@ -19,11 +20,7 @@
     }
 
     a:not([class]) {
-      color: var(--color-dark);
-      position: relative;
-      display: inline-block;
-      background: var(--color-theme-highlight);
-      padding: 0.2rem 0.4rem 0.3rem 0.4rem;
+      color: var(--color-link);
       text-decoration: none;
       word-break: break-word;
 
@@ -53,8 +50,10 @@
       border-left: 0.4rem solid var(--color-theme-primary-glare);
       margin-left: 0;
       padding-left: get-size(500);
-      font-style: italic;
+      @include apply-utility('font', 'cursive');
       font-size: get-size(600);
+      font-weight: 200;
+      line-height: 1.25;
 
       p {
         opacity: 0.85;

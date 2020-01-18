@@ -4,9 +4,13 @@
   }
 
   &__link {
+    @include apply-utility('font', 'cursive');
+    font-weight: 200;
+    font-size: get-size(700);
+
     &,
     &:visited {
-      color: var(--color-theme-primary);
+      color: var(--color-theme-feature-text);
       text-decoration: none;
     }
 

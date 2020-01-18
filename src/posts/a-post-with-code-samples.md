@@ -1,6 +1,7 @@
 ---
 title: A post with code samples
-date: '2019-06-18'
+summary: Like it says on the box, a post with code samples in it.
+date: '2020-01-01'
 tags:
   - demo-content
   - code

@@ -1,9 +1,10 @@
 .intro {
-  background: var(--color-theme-highlight-block);
+  text-align: center;
 
   &__summary {
     --flow-space: #{get-size(500)};
     font-size: get-size(500);
+    margin: 0 auto;
 
     a {
       color: currentColor;
@@ -15,10 +16,14 @@
   }
 
   &__heading {
+    font-size: get-size(max);
     max-width: 40ex;
+    margin-bottom: #{get-size(500)};
+    line-height: 1.2;
     color: var(--color-theme-feature-text);
+    @include apply-utility('font', 'cursive');
 
-    &--compact {
+    &--compact { // do I need this?
       max-width: 20ex;
     }
   }
