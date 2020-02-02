@@ -1,4 +1,6 @@
 .nav {
+  flex: 1;
+
   &__list {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;

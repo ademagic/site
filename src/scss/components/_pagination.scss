@@ -1,5 +1,10 @@
+.section--pagination {
+  background-color: #fff;
+}
+
 .pagination {
   flex-wrap: wrap;
+  border-top: 1px solid var(--color-stroke);
 
   a {
     color: var(--color-theme-primary);
