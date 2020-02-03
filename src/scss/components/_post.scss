@@ -127,7 +127,7 @@
     h3 {
       flex-shrink: 0;
       margin-right: get-size('base');
-      color: var(--color-dark);
+      color: var(--color-text);
     }
 
     h3 a {
@@ -136,6 +136,7 @@
 
     a {
       background: var(--color-mid);
+      color: var(--color-action-text);
       border-radius: 4px;
       box-shadow: 0 4px 0 darken(#999, 15%); // fix this
       padding: 0.4rem 0.6rem;
