@@ -4,8 +4,8 @@
 }
 
 .intro--home {
-    background-color: #314455;
-    color: white;
+    background: linear-gradient(var(--color-theme-introHome-bg), var(--color-bg));
+    color: var(--color-theme-introHome-text);
     font-family: sans-serif;
     height: 100vh;
 
@@ -67,7 +67,7 @@
   }
 
   .grid__item:nth-of-type(odd) {
-    background-color: #cc7b36;
+    background-color: var(--color-secondary);
     opacity: 0.75;
   }
 

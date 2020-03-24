@@ -6,9 +6,11 @@
 
   // Set theme aliases
   --color-mode: 'light';
+
   --color-bg: #{get-color('light')};
   --color-bg-glare: #{get-color('primary-glare')};
   --color-bg-dark: #{get-color('primary-shade')};
+  
   --color-text: #{get-color('dark')};
   --color-text-light: #{get-color('light')};
   --color-text-glare: #{get-color('dark')};
@@ -17,30 +19,44 @@
   --color-stroke: #{get-color('mid')};
   --color-action-bg: #{get-color('primary')};
   --color-action-text: #{get-color('dark')};
+  
   --color-theme-primary: #{get-color('primary')};
   --color-theme-primary-glare: #{get-color('primary-glare')};
   --color-theme-highlight: #{get-color('highlight')};
   --color-theme-highlight-block: #{get-color('highlight')};
-  --color-theme-footer-bg: var(--color-bg-dark);
-  --color-theme-footer-border: var(--color-bg-glare);
+  
+  --color-theme-header-bg: var(--color-bg);
+  --color-theme-header-border: var(--color-stroke);
+  --color-theme-header-text: var(--color-text);
+  --color-theme-introHome-bg: #{get-color('primary-shade')};
+  --color-theme-introHome-text: #{get-color('light')};
+  --color-theme-footer-bg: #{get-color('secondary-shade')};
+  --color-theme-footer-border: #{get-color('secondary')};
 }
 
 @include dark-mode() {
   --color-bg: #{get-color('dark')};
   --color-bg-glare: #{get-color('slate')};
   --color-bg-dark: #{get-color('dark')};
+  
   --color-text: #{get-color('light')};
-  --color-link: #{get-color('link')};
+  --color-link: #{get-color('primary-glare')};
   --color-selection-text: #{get-color('dark')};
   --color-selection-bg: #{get-color('secondary')};
   --color-stroke: var(--color-bg-dark);
-  --color-theme-primary: #{lighten(get-color('primary'), 50%)};
-  --color-theme-primary-glare: #{lighten(get-color('primary-glare'), 50%)};
   --color-action-bg: var(--color-theme-primary-glare);
   --color-action-text: #{get-color('dark')};
+  
+  --color-theme-primary: #{lighten(get-color('primary'), 50%)};
+  --color-theme-primary-glare: #{lighten(get-color('primary-glare'), 50%)};
   --color-theme-highlight: #{get-color('primary')};
   --color-theme-highlight-block: #{get-color('slate')};
-  --color-theme-feature-text: var(--color-primary-shade);
+  --color-theme-feature-text: var(--color-secondary-glare);
+  
+  --color-theme-header-border: var(--color-bg-glare);
+  --color-theme-introHome-bg: var(--color-bg-glare);
+  --color-theme-footer-bg: #{get-color('superdark')};
+  --color-theme-footer-border: var(--color-bg-dark);
 }
 
 body {

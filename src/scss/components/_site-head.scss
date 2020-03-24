@@ -1,10 +1,23 @@
 .site-head {
   z-index: 20;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  background: var(--color-theme-header-bg);
+  box-shadow: 0px -3px 10px var(--color-theme-header-border);
 
   &__site-name {
     font-weight: 700;
     text-decoration: none;
-    color: var(--color-text);
+  }
+
+  a {
+    color: var(--color-theme-header-text);
+  }
+}
+
+.site-head--home {
+  background: var(--color-theme-introHome-bg);
+  box-shadow: none;
+
+  a {
+    color: var(--color-theme-introHome-text);
   }
 }
