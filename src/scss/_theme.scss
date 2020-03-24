@@ -7,7 +7,7 @@
   // Set theme aliases
   --color-mode: 'light';
   --color-bg: #{get-color('light')};
-  --color-bg-glare: #{get-color('light')};
+  --color-bg-glare: #{get-color('primary-glare')};
   --color-bg-dark: #{get-color('primary-shade')};
   --color-text: #{get-color('dark')};
   --color-text-light: #{get-color('light')};
@@ -16,29 +16,31 @@
   --color-selection-bg: #{get-color('dark')};
   --color-stroke: #{get-color('mid')};
   --color-action-bg: #{get-color('primary')};
-  --color-action-text: #{get-color('light')};
+  --color-action-text: #{get-color('dark')};
   --color-theme-primary: #{get-color('primary')};
   --color-theme-primary-glare: #{get-color('primary-glare')};
   --color-theme-highlight: #{get-color('highlight')};
   --color-theme-highlight-block: #{get-color('highlight')};
+  --color-theme-footer-bg: var(--color-bg-dark);
+  --color-theme-footer-border: var(--color-bg-glare);
 }
 
 @include dark-mode() {
-  --color-bg: #{get-color('primary')};
-  --color-bg-glare: #{get-color('primary-shade')};
-  --color-bg-dark: #{get-color('primary-dark')};
+  --color-bg: #{get-color('dark')};
+  --color-bg-glare: #{get-color('slate')};
+  --color-bg-dark: #{get-color('dark')};
   --color-text: #{get-color('light')};
   --color-link: #{get-color('link')};
   --color-selection-text: #{get-color('dark')};
-  --color-selection-bg: #{get-color('light')};
+  --color-selection-bg: #{get-color('secondary')};
   --color-stroke: var(--color-bg-dark);
   --color-theme-primary: #{lighten(get-color('primary'), 50%)};
   --color-theme-primary-glare: #{lighten(get-color('primary-glare'), 50%)};
   --color-action-bg: var(--color-theme-primary-glare);
   --color-action-text: #{get-color('dark')};
-  --color-theme-highlight: #{get-color('highlight')};
+  --color-theme-highlight: #{get-color('primary')};
   --color-theme-highlight-block: #{get-color('slate')};
-  --color-theme-feature-text: #{get-color('highlight')};
+  --color-theme-feature-text: var(--color-primary-shade);
 }
 
 body {
