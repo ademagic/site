@@ -37,6 +37,6 @@ It's also got Netlify's CMS preconfigured, which seems to be a strong sell but I
 ## GitHub Pages
 TBD
 
-So, there it is. You've made it this far. Hopefully you found this intro blog useful, and hopefully you'll come back for more later. If you've got any feedback for me I'd love some – drop a comment here or <a href="https://twitter.com/miko_a" target="_blank">@ me on twitter</a>.
+So, there it is. You've made it this far. Hopefully you found this intro blog useful, and hopefully you'll come back for more later. I've got all sorts of stuff planned – new animations, a nicer About page, heaps of blogposts and projects, probably changing my typography 5 or 6 times... If you've got any feedback for me I'd love some – drop a comment here or <a href="https://twitter.com/miko_a" target="_blank">@ me on twitter</a>.
 
 Stay safe. ✌️
