@@ -35,7 +35,7 @@ It also generates a `/styleguide/` page from your tokens, which lets you get a q
 It's also got Netlify's CMS preconfigured, which seems to be a strong sell but I didn't consider it. I may well use it eventually, but since I was already working with GitHub Pages, I decided to make things difficult for myself.
 
 ## GitHub Pages
-TBD
+I really like that <a href="https://pages.github.com/" target="_blank">GitHub pages</a> is a thing. Having the ability to quickly deploy a static site for a project just by pushing an index file to a `gh-pages` branch is ingenius. I've been hosting my site in this way for a few years, mainly because I haven't needed the complexity of my own custom hosting setup and so I also haven't been considering other methods. Now that I've built my site with Eleventy, I'm weighing up my options again.
 
 So, there it is. You've made it this far. Hopefully you found this intro blog useful, and hopefully you'll come back for more later. I've got all sorts of stuff planned – new animations, a nicer About page, heaps of blogposts and projects, probably changing my typography 5 or 6 times... If you've got any feedback for me I'd love some – drop a comment here or <a href="https://twitter.com/miko_a" target="_blank">@ me on twitter</a>.
 
