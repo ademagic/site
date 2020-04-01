@@ -15,7 +15,11 @@
     }
 
     &--footer {
-      justify-content: center;
+      justify-content: right;
+
+      .nav__item {
+        padding: 0;
+      }
     }
   }
 
