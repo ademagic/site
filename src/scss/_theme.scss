@@ -32,10 +32,11 @@
   --color-theme-introHome-text: #{get-color('light')};
   --color-theme-footer-bg: #{get-color('secondary-shade')};
   --color-theme-footer-border: #{get-color('secondary')};
+  --color-theme-footer-text: var(--color-text-light);
 }
 
 @include dark-mode() {
-  --color-bg: #{get-color('dark')};
+  --color-bg: #{get-color('superdark')};
   --color-bg-glare: #{get-color('slate')};
   --color-bg-dark: #{get-color('dark')};
   
@@ -55,13 +56,14 @@
   
   --color-theme-header-border: var(--color-bg-glare);
   --color-theme-introHome-bg: var(--color-bg-glare);
-  --color-theme-footer-bg: #{get-color('superdark')};
-  --color-theme-footer-border: var(--color-bg-dark);
+  --color-theme-footer-border: #{get-color('superdark')};
+  --color-theme-footer-bg: var(--color-bg-dark);
 }
 
 body {
   color: var(--color-text);
   background-color: var(--color-bg);
+  transition: all 0.3s ease-in;
 }
 
 main {

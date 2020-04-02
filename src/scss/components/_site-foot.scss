@@ -1,7 +1,7 @@
 .site-foot {
   background: var(--color-theme-footer-bg);
   border-top: 15px solid var(--color-theme-footer-border);
-  color: var(--color-text-light);
+  color: var(--color-theme-footer-text);
 
   a {
     color: currentColor;
@@ -19,6 +19,10 @@
     margin-top: 0;
     border: 0;
     padding: 0;
+    
+    @media screen and (max-width: 631px) {
+      text-align: center;
+    }
 
     svg {
       fill: currentColor;

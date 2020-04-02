@@ -15,10 +15,14 @@
     }
 
     &--footer {
-      justify-content: right;
-
       .nav__item {
         padding: 0;
+      }
+
+      justify-content: center;
+
+      @media screen and (min-width: 632px) {
+        justify-content: right;
       }
     }
   }
