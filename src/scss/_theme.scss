@@ -56,14 +56,14 @@
   
   --color-theme-header-border: var(--color-bg-glare);
   --color-theme-introHome-bg: var(--color-bg-glare);
-  --color-theme-footer-border: #{get-color('superdark')};
+  --color-theme-footer-border: var(--color-bg-glare);
   --color-theme-footer-bg: var(--color-bg-dark);
 }
 
 body {
   color: var(--color-text);
   background-color: var(--color-bg);
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 main {

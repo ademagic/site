@@ -20,4 +20,15 @@
   a {
     color: var(--color-theme-introHome-text);
   }
+
+  .site-head__site-logo svg {
+    fill: var(--color-theme-introHome-text);
+  }
+
+}
+
+.site-head__site-logo svg {
+  fill: var(--color-theme-header-text);
+  width: 2rem;
+  display: block;
 }
