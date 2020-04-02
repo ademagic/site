@@ -1,6 +1,6 @@
 ---
 title: 'Zoom Etiquette'
-date: '2020-04-01'
+date: '2020-04-02'
 summary: 'Helping you make the most of your meetings in the time of COVID-19. How the DOPS team ran effective and inclusive meetings online, with a distributed crew.'
 tags:
   - management
