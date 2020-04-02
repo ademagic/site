@@ -1,9 +1,10 @@
 ---
 title: Hello, World! Again!
-date: '2020-03-27'
+date: '2020-03-30'
 summary: The new site's live! But at what cost??... and with what tech?
 tags:
   - tech
+  - site
 ---
 Very original, I know. Especially because this isn't the first iteration of my website and I bet I've probably used this same line before, even in iterations that never saw the light of the internet. If anything, I'm consistent.
 
