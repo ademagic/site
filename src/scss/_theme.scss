@@ -33,6 +33,9 @@
   --color-theme-footer-bg: #{get-color('secondary-shade')};
   --color-theme-footer-border: #{get-color('secondary')};
   --color-theme-footer-text: var(--color-text-light);
+
+  --color-theme-code-bg: var(--color-mid);
+  --color-theme-code-text: var(--color-dark);
 }
 
 @include dark-mode() {
@@ -58,6 +61,10 @@
   --color-theme-introHome-bg: var(--color-bg-glare);
   --color-theme-footer-border: var(--color-bg-glare);
   --color-theme-footer-bg: var(--color-bg-dark);
+
+
+  --color-theme-code-bg: var(--color-dark);
+  --color-theme-code-text: var(--color-mid);
 }
 
 body {

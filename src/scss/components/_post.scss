@@ -32,15 +32,11 @@
     }
 
     code {
-      font-size: 1.2em;
       color: var(--color-theme-primary);
       background: var(--color-dark);
-      font-weight: 600;
-      margin-left: 0.01ch;
-      margin-right: 0.01ch;
-      padding-left: 0.2em;
-      padding-right: 0.2em;
-      padding-top: 0.2em;
+      margin-left: 0.1ch;
+      margin-right: 0.1ch;
+      padding: 0.1em 0.2em;
       border-radius: 2px;
     }
 
