@@ -11,3 +11,6 @@ A simple (but powerful) static site generator.
 
 ### [Hylia](https://hylia.website/)
 A starter kit for Eleventy, with Netlify CMS preconfigured.
+
+### [Commento](https://commento.io/)
+A fast, privacy-focused commenting platform.
