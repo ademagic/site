@@ -1,0 +1,116 @@
+.timeline {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &:after {
+        display: block;
+        width: 3px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        content: '';
+        background-color: #dedede;
+        right: 50%;
+    }
+
+    li {
+        $distance-from-timeline: 20%;
+
+        position: relative;
+        z-index: 100;
+
+        & + li {
+            margin-top: 6rem;
+
+            &::after {
+                display: block;
+                height: 3px;
+                width: 100%;
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 50%;
+                background-color: #dedede;
+                z-index: 10;
+            }
+        }
+
+        &:nth-of-type(n+2) {
+            width: 50%;
+        }
+
+        &:nth-child(odd) {
+            align-self: flex-end;
+            margin-right: 0;
+
+            .event {
+                margin-left: #{$distance-from-timeline};
+                margin-right: -#{$distance-from-timeline};    
+            }
+        }
+
+        &:nth-child(even) {
+            align-self: flex-start;
+            margin-left: 0;
+
+            .event {
+                margin-left: -#{$distance-from-timeline};
+                margin-right: #{$distance-from-timeline};    
+            }
+        }
+
+        &:first-child,
+        &:last-child {
+            background-color: transparent;
+            align-self: initial;
+            width: 100%;
+
+            .event {
+                width: 75%;
+                margin: 0 auto;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+}
+
+.event {
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    padding: 2rem;
+    border-radius: 5rem/50%;
+    border: 3px solid #dedede;
+    position: relative;
+    z-index: 100;
+}
+
+.event .event__image {
+    overflow: hidden;
+    margin-right: 1rem;
+    border-radius: 50%;
+    background-color: #dedede;
+
+    // fighting with .post__body figure, reset a bunch of stuff
+    width: 100px;
+    height: 100px;
+    transform: none;
+    margin-left: 0;
+    max-width: none;
+
+    img {
+        border-radius: 50%;
+
+        // fighting with .post__body img, reset a bunch of stuff
+        box-shadow: none;
+    }
+}
+
+.event__content {
+    flex: 1;
+}
