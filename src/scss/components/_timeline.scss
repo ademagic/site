@@ -15,10 +15,55 @@
     }
 
     li {
-        $distance-from-timeline: 20%;
-
         position: relative;
         z-index: 100;
+
+        & + li {
+            margin-top: 3rem;
+        }
+    }
+}
+
+.event {
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 4rem/50%;
+    border: 3px solid #dedede;
+    position: relative;
+    z-index: 100;
+}
+
+.event .event__image {
+    overflow: hidden;
+    margin-right: 1rem;
+    border-radius: 50%;
+    background-color: #dedede;
+
+    // fighting with .post__body figure, reset a bunch of stuff
+    width: 100px;
+    height: 100px;
+    transform: none;
+    margin-left: 0;
+    max-width: none;
+
+    img {
+        border-radius: 50%;
+
+        // fighting with .post__body img, reset a bunch of stuff
+        box-shadow: none;
+    }
+}
+
+.event__content {
+    flex: 1;
+}
+
+@media only screen and (min-device-width: 801px) {
+
+    .timeline li {
+        $distance-from-timeline: 20%;
 
         & + li {
             margin-top: 6rem;
@@ -63,7 +108,6 @@
 
         &:first-child,
         &:last-child {
-            background-color: transparent;
             align-self: initial;
             width: 100%;
 
@@ -77,40 +121,9 @@
             }
         }
     }
-}
 
-.event {
-    background-color: white;
-    display: flex;
-    align-items: flex-start;
-    padding: 2rem;
-    border-radius: 5rem/50%;
-    border: 3px solid #dedede;
-    position: relative;
-    z-index: 100;
-}
-
-.event .event__image {
-    overflow: hidden;
-    margin-right: 1rem;
-    border-radius: 50%;
-    background-color: #dedede;
-
-    // fighting with .post__body figure, reset a bunch of stuff
-    width: 100px;
-    height: 100px;
-    transform: none;
-    margin-left: 0;
-    max-width: none;
-
-    img {
-        border-radius: 50%;
-
-        // fighting with .post__body img, reset a bunch of stuff
-        box-shadow: none;
+    .event {
+        padding: 2rem;
+        border-radius: 5rem/50%;
     }
-}
-
-.event__content {
-    flex: 1;
 }
