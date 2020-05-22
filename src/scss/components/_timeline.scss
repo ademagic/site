@@ -59,7 +59,7 @@ $lineColor: var(--color-stroke);
     overflow: hidden;
     margin-right: 1rem;
     border-radius: 50%;
-    background-color: $lineColor;
+    box-shadow: 0px 2px 2px $lineColor;
 
     // fighting with .post__body figure, reset a bunch of stuff
     width: 100px;
