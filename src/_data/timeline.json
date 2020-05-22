@@ -1,34 +1,64 @@
 {
   "events": [
     {
-      "title": "Senior Front End Developer",
+      "title": "Joined InnoWell",
       "date": "June 2020",
-      "image": "https://unsplash.it/100"
+      "image": "innowell.png",
+      "content": "Digging deep into tech again – joining as Senior Front End Developer on the Digital team."
     },
     {
-      "title": "Engineering Lead, Design Operations",
+      "title": "Engineering Lead, DOPS",
       "date": "December 2018",
-      "image": "https://unsplash.it/100"
+      "image": "luna.png",
+      "content": "Making it official – managing a team of talented engineers in operationalising Design at Finder."
     },
     {
       "title": "Joined Finder",
       "date": "April 2017",
-      "image": "https://unsplash.it/100"
+      "image": "finder.jpg",
+      "content": "Building the Design System of Australia&apos;s biggest comparison site."
     },
     {
       "title": "Moved to San Francisco",
       "date": "June 2015",
-      "image": "https://unsplash.it/100"
+      "image": "bc_sf.jpg",
+      "content": "Building the Design System and Theme Engine with the UI Platform team."
+    },
+    {
+      "title": "First talk at SydCSS",
+      "date": "June 2014",
+      "image": "sydcss.png",
+      "content": "<a href=\"https://www.youtube.com/watch?v=9RlaNKfl5ag\">The Thing About vertical-align</a>, back in the dark ages before flexbox and grid in production."
     },
     {
       "title": "Joined BigCommerce",
       "date": "November 2012",
-      "image": "https://unsplash.it/100"
+      "image": "bc.png",
+      "content": "Building the first responsive storefront themes, theming libraries and the Style Editor."
     },
     {
       "title": "Graduated!",
       "date": "May 2009",
-      "image": "https://unsplash.it/100"
+      "image": "wsu.jpg",
+      "content": "Bachelor of IT, Web Development major – WSU (ex UWS)."
+    },
+    {
+      "title": "Joined Solutions Outsourced, SiteFlex",
+      "date": "March 2009",
+      "image": "solout.jpg",
+      "content": "SiteFlex Support, eCommerce site specialist. My love affair with CSS begins."
+    },
+    {
+      "title": "Published!",
+      "date": "December 2008",
+      "image": "second_life.jpg",
+      "content": "<a href=\"https://ieeexplore.ieee.org/abstract/document/4783940?section=abstract\">Collaboration Opportunities in Second Life</a>"
+    },
+    {
+      "title": "Watched Minority Report",
+      "date": "ca. 2002",
+      "image": "minority_report.jpg",
+      "content": "<em>\"I wonder if I could build UIs for a living?\"</em>"
     }
   ]
 }

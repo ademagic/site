@@ -48,7 +48,7 @@ $lineColor: var(--color-stroke);
     display: flex;
     align-items: flex-start;
     padding: 1rem;
-    border-radius: 4rem/50%;
+    border-radius: 4px;
     border: $lineWidth solid $lineColor;
     position: relative;
     z-index: 100;
@@ -79,7 +79,7 @@ $lineColor: var(--color-stroke);
     flex: 1;
 }
 
-@media only screen and (min-device-width: 801px) {
+@media screen and (min-width: 801px) {
 
     .timeline li {
         $distance-from-timeline: 20%;
@@ -136,6 +136,5 @@ $lineColor: var(--color-stroke);
 
     .event {
         padding: 2rem;
-        border-radius: 5rem/50%;
     }
 }

@@ -4,11 +4,14 @@
         <li>
             <article class="event">
                 <figure class="event__image">
-                    <img src="{{ event.image }}" />
+                    <img src="/images/timeline/{{ event.image }}" />
                 </figure>
                 <div class="event__content">
-                    <div class="event__date">{{ event.date }}</div>
+                    <span class="[ event__date ][ color-slate ][ text-300 ]">{{ event.date }}</span>
                     <div class="event__description">{{ event.title }}</div>
+                    {% if event.content %}
+                        <p class="[ event__content ][ text-base ]">{{ event.content | safe }}</p>
+                    {% endif %}
                 </div>
             </article>
         </li>
