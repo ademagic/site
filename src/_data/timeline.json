@@ -1,0 +1,34 @@
+{
+  "events": [
+    {
+      "title": "Senior Front End Developer",
+      "date": "June 2020",
+      "image": "https://unsplash.it/100"
+    },
+    {
+      "title": "Engineering Lead, Design Operations",
+      "date": "December 2018",
+      "image": "https://unsplash.it/100"
+    },
+    {
+      "title": "Joined Finder",
+      "date": "April 2017",
+      "image": "https://unsplash.it/100"
+    },
+    {
+      "title": "Moved to San Francisco",
+      "date": "June 2015",
+      "image": "https://unsplash.it/100"
+    },
+    {
+      "title": "Joined BigCommerce",
+      "date": "November 2012",
+      "image": "https://unsplash.it/100"
+    },
+    {
+      "title": "Graduated!",
+      "date": "May 2009",
+      "image": "https://unsplash.it/100"
+    }
+  ]
+}

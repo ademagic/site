@@ -1,0 +1,17 @@
+{% if timeline.events %}
+    <ul class="timeline">
+    {% for event in timeline.events %}
+        <li>
+            <article class="event">
+                <figure class="event__image">
+                    <img src="{{ event.image }}" />
+                </figure>
+                <div class="event__content">
+                    <div class="event__date">{{ event.date }}</div>
+                    <div class="event__description">{{ event.title }}</div>
+                </div>
+            </article>
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
