@@ -39,12 +39,14 @@ Maybe get some of your colleagues to do it too. Keep in mind that you're *testin
 </figure>
 
 ### 4. Share the criteria with the candidate
-I can't stress this enough. Tell them what you're looking for so they know what to prioritise. If you're asking a full stack developer to write a complex microservice architecture in node that feeds data to a simple app, and then you reject them based on their lack of responsive UI, nobody's gonna have a good time.
+I can't stress this enough. Tell them what you're looking for so they know what to prioritise. If you're asking a full stack developer to write a complex microservice architecture in node that feeds data to a simple app, and then you reject them based on their lack of responsive UI (that you didn't ask for), nobody's gonna have a good time.
 
 This is also the time to share any code styles or preferences that you're looking for. It's a good way to test somebody's adaptability. Just remember – not following the code structure you'd use doesn't necessarily make the candidate a bad fit.
 
 ### 5. Always give feedback
-Be prompt, and fair. Let them know exactly why they didn't meet your standards, where they fell short and where/how they can improve. The criteria you wrote in step 1 should make this real easy for you. For bonus points, tell them what you liked and what they did well.
+Be fair, and be prompt. Let them know (as soon as you can) exactly why they didn't meet your standards, where they fell short and where/how they can improve. The criteria you wrote in step 1 should make this real easy for you. For bonus points, tell them what you liked and what they did well.
+
+Remember, your candidate has put a great deal of time and effort into this process, sometimes prioritising it over other things that are valuable or important to them. Reciprocate with empathy, tact and effort.
 
 ## My favourite test I've written
 The best test I ever wrote was actually not a take-home test. It was an in-person pair programming challenge which could be done remotely as well.
