@@ -4,6 +4,7 @@ metaTitle: '5 Steps To Writing A Good Technical Test – My experiences of what
 date: '2020-05-23'
 summary: 'A simple guide on writing tech tests, based on my experiences with completing (and assessing) them'
 metaDesc: 'Technical ability assessments can be daunting for both parties. There are good and bad ways to write technical tests – In this post, I outline my experience with writing and completing tech tests, and what you should consider when putting yours together.'
+soundtrack: 'playlist/0vvXsWCC9xrXsKd4FyS8kM'
 tags:
   - management
   - job-search

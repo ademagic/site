@@ -4,6 +4,7 @@ metaTitle: 'Zoom Etiquette – How to run friendly distributed meetings, COVID-
 date: '2020-04-02'
 summary: 'Helping you make the most of your meetings in the time of COVID-19. How the DOPS team ran effective and inclusive meetings online, with a distributed crew.'
 metaDesc: 'Having a hard time being heard in your Zoom meetings? Not feeling the vibe from your Brady Bunch? How the Design Operations team at Finder ran effective and inclusive meetings over video conference calls, with a distributed crew.'
+soundtrack: 'album/54DU59anGQsdrFP7utpshG'
 tags:
   - management
   - remote-working

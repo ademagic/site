@@ -2,6 +2,7 @@
 title: 'Release 1: The First Fixes'
 date: '2020-04-01'
 summary: 'If a website gets released in the woods without needing a hotfix, does it make a sound?'
+soundtrack: 'album/0nIAfmC9PCdvRcj9YH0Sln'
 tags:
   - release
   - site

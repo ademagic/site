@@ -1,3 +1,8 @@
+{% if soundtrack %}
 <div class="soundtrack">
-    <iframe src="https://open.spotify.com/embed/{{ soundtrack | safe }}" width="380" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <p>Written under the influence of...</p>
+    <div class="soundtrack__embed">
+        <iframe src="https://open.spotify.com/embed/{{ soundtrack | safe }}" width="380" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
 </div>
+{% endif %}
