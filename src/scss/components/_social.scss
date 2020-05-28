@@ -1,8 +1,4 @@
 .social {
-    border: 1px solid var(--color-stroke);
-    margin-top: 2rem;
-    padding: 0.8rem 1.5rem;
-    border-radius: 2px;
     font-size: 1rem;
 
     svg {
@@ -10,13 +6,8 @@
     }
 }
 
-.social__title {
-    font-size: 1.2rem;
-}
-
 .social__list li {
     display: inline-block;
     width: 2rem;
-    margin-top: 1.5rem;
     margin-right: 1rem;
 }
