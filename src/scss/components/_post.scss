@@ -14,7 +14,6 @@
     h2,
     h3 {
       position: relative;
-      /*display: flex;*/
 
       @include apply-utility('leading', 'tight');
     }
@@ -119,6 +118,26 @@
       padding: get-size(700);
       font-size: get-size(500);
     }
+
+    > p:first-of-type {
+      &::first-letter {
+        font-size: 3em;
+        float: left;
+        padding: 1rem 1.25rem;
+        height: 4rem;
+        background-color: var(--color-bg-glare);
+        box-shadow: 3px 3px 0px var(--color-bg-dark);
+        text-shadow: 3px 3px 0px var(--color-theme-highlight);
+        margin-right: 0.75rem;
+        margin-top: 0.5rem;
+        color: #fff;
+        line-height: 70px;
+  
+        @include apply-utility('font', 'cursive');
+      }
+    }
+
+
   }
 
   &__footer {
