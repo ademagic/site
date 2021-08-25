@@ -2,7 +2,7 @@
 title: "Credits"
 layout: 'layouts/page.njk'
 ---
-This page was built with some great tools, some of them open-source. It's hosted on [GitHub Pages](https://github.com/ademagic/ademagic.github.io/) and you can find the source code [on site repo](https://github.com/ademagic/site). More to come.
+This page was built with some great tools, some of them open-source. It's hosted on [GitHub Pages](https://github.com/ademagic/ademagic.github.io/) and you can find the source code [on my site repo](https://github.com/ademagic/site). More to come.
 
 You can read my ramblings about them in my [Hello World!](/posts/welcome/) post, but below is a summary.
 
