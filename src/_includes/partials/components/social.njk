@@ -1,9 +1,0 @@
-<article class="social">
-    <ul class="social__list">
-        {% for social in social.items %}
-            <li>
-                <a href="{{ social.url }}" {% if social.external %} target="_blank" {% endif %}><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>{{ social.account_name }} on {{ social.text }}</title><path d="{{ social.icon_path }}"/></svg><span class="visually-hidden">{{ social.text }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-</article>
