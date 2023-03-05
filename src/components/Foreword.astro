@@ -1,0 +1,24 @@
+---
+const { current = '' } = Astro.props;
+---
+<aside>
+    <p>
+        <slot />
+    </p>
+</aside>
+
+<style>
+    aside {
+        align-items: center;
+        display: flex;
+        border: 1px solid var(--primary-color);
+        padding: 2rem 1.5rem;
+        box-shadow: -5px 5px 0 var(--primary-color);
+    }
+
+    p {
+        font-size: 1.125rem;
+        font-style: italic;
+    }
+</style>
+  
