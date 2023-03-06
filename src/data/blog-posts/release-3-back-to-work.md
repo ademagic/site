@@ -6,6 +6,7 @@ soundtrack: 'album/0qxsfpy2VU0i4eDR9RTaAU'
 tags:
   - release
   - site
+foreword: 'This post is pretty old, and references Eleventy and other tech that my site no longer uses. To find out what I built this with, check out my Credits page. Link in footer.'
 ---
 Over the past 3 months or so I've had the luxury of spending a good chunk of time on my website. Voluntarily.
 

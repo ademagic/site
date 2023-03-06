@@ -6,8 +6,9 @@ soundtrack: playlist/4tmFAU51n3ytOBr4vy90fz
 tags:
   - tech
   - site
+foreword: 'This post is pretty old, and references Eleventy and other tech that my site no longer uses. To find out what I built this with, check out my Credits page. Link in footer.'
 ---
-Very original, I know. Especially because this isn't the first iteration of my website and I bet I've probably used this same line before, even in iterations that never saw the light of the internet. If anything, I'm consistent.
+Very original, I know. Especially because this isn't the first iteraion of my website and I bet I've probably used this same line before, even in iterations that never saw the light of the internet. If anything, I'm consistent.
 
 I've had another go at getting a site live, and I'll be trying to blog my way through it as I go. While this site was born in the time of COVID-19, I've been at it for a few months longer. Not working on it constantly, though – There's been a break as I was going through some personal challenges, and obviously the odd redesign. As "perfect is the enemy of done", recently I've decided to really double down on an "MVP". This is all content for future blogposts though. And so, here we are.
 
