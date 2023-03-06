@@ -19,7 +19,7 @@ In the last few weeks of my job hunt, I spent more time completing technical tes
 ### 1. Write your criteria
 Create a marking criteria that outlines what you'll be looking for when reviewing the test, complete with weighting/priority. Are you trying to understand their approach to structuring classes? How important is test coverage? How about a bug or feature backlog? Do you want to see design skills? All of these things are valid. It's important that you're thorough and that you write all of this out for yourself.
 
-![Funny test answer, find x of a right angled triangle, circled here it is](/images/tech-tests/find-x.jpg "The clearer you are, the better the answers you'll get. Sourced from funnytab.net")
+![Funny test answer, find x of a right angled triangle, circled here it is](/assets/blog/tech-tests/find-x.jpg "The clearer you are, the better the answers you'll get. Sourced from funnytab.net")
 
 ### 2. Be realistic about your timing
 Things start to get tricky now. Go back over your criteria and figure out how much time you expect people to spend doing this. Typically, the suggested time for a take-home test is 2-3 hours. Any longer, and candidates may not bother with taking the test. However, I have spent >12 hours on a 3 hour test for a job I really wanted (and got), and I'm sure I'm not the only one.
