@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Credits';
+const description = 'This site was built with some great tools, some of them open-source. You can find a list on this page.';
+const permalink = `${Astro.site.href}credits`;
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} current="credits">
+  <div class="container">
+    <h1>Credits</h1>
+    <p>This page was built with some great tools, some of them open-source. It's hosted on <a href="https://github.com/ademagic/ademagic.github.io/">GitHub Pages</a> and you can find the source code <a href="https://github.com/ademagic/site">on my site repo</a>.</p>
+    <h3><a href="https://astro.build/">Astro</a></h3>
+    <p>Astro is a web framework for building fast static websites. Super lean, super static, content-focused and UI agnostic.</p>
+    <h3><a href="https://github.com/Charca/astro-blog-template">Astro Blog Template by Maxi Ferreira</a></h3>
+    <p>A super-simple starter for Astro which I used to get my site up and running quickly.</p>
+    <h3><a href="https://svelte.dev/">Svelte</a></h3>
+    <p>A JavaScript framework for build-time JS compilation, which the Blog Template came preconfigured with.</p>
+  </div>
+</BaseLayout>
