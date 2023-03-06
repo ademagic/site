@@ -2,6 +2,7 @@
   --background-body: #fff;
   --text-main: #36393b;
   --text-secondary: #6b6f72;
+  --text-highlight: #fff;
   --primary-color: #33a6c1;
   --font-family-serif: Merriweather, serif;
   --font-family-sans: 'Fira Sans', sans-serif;
@@ -11,6 +12,7 @@
   --background-body: #202122;
   --text-main: #fff;
   --text-secondary: #ccc;
+  --text-highlight: #fff;
   --primary-color: #c24756;
 }
 

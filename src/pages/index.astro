@@ -10,8 +10,8 @@ const permalink = Astro.site.href;
   <div class="home-container">
     <div class="home-copy">
       <h1>Hi, I'm Miko.</h1>
-      <p>I'm a Design-focused UI developer from Sydney, Australia.</p>
-      <p>Reach out on <a>the Elephant</a>, <a>the Bird</a>, or <a>the Octocat</a>. Or even <a>LinkedIn</a>.</p>
+      <p>I'm a <span class="emphasis">Design-focused UI developer</span> from Sydney, Australia.<br/>I like working on Design Systems, UX, Accessibility and generally <span class="emphasis">making good things for good people</span>.</p>
+      <p>Reach out on <a href="https://indieweb.social/@ademagic">the Elephant</a>, <a href="https://twitter.com/miko_a">the Bird</a>, or <a href="https://github.com/ademagic">the Octocat</a>. Or even <a href="https://linkedin.com/in/mikoademagic">the LinkedIn</a>.</p>
     </div>
 
     <div class="hero-image-container">
@@ -46,6 +46,13 @@ const permalink = Astro.site.href;
 
   .home-copy p {
     font-size: 1.4em;
+  }
+
+  .emphasis {
+    background-color: var(--primary-color);
+    color: var(--text-highlight);
+    padding-left: 0.2em;
+    padding-right: 0.2em;
   }
 
   .hero-image-container {
