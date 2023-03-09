@@ -1,5 +1,6 @@
 ---
 title: 5 Steps To Writing A Good Technical Test
+from11ty: true
 metaTitle: 5 Steps To Writing A Good Technical Test – My experiences of what does and doesnt work
 publishDate: 23 May 2020
 description: A simple guide on writing tech tests, based on my experiences with completing (and assessing) them

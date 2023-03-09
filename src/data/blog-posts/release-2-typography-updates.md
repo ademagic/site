@@ -1,5 +1,6 @@
 ---
 title: 'Release 2: Mostly Typography Updates'
+from11ty: true
 publishDate: 11 May 2020
 description: 'My second release of changes to the site. A Credits page and, surprise surprise – more typography changes.'
 soundtrack: 'artist/6pmxr66tMAePxzOLfjGNcX'

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import getPostData from '../../utils/getPostData';
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../data/blog-posts/*.md');
+  return posts.map(p => ({
+    params: { slug: p.file.split('/').pop().split('.').shift() },
+    props: { post: p },
+  }));
+}
+
+const { frontmatter } = Astro.props.post;
+const { title, description, publishDate, foreword } = frontmatter;
+const { slug } = getPostData(Astro.props.post);
+const permalink = `${Astro.site.href}blog/${slug}`;
+---
+
+<head>
+    <meta http-equiv="refresh" content={ `0; url=${ permalink }` } />
+</head>

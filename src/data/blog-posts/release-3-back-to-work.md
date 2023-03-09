@@ -1,5 +1,6 @@
 ---
 title: 'Release 3: Back to work'
+from11ty: true
 publishDate: 01 Jun 2020
 description: 'A few new features but alas, not the homepage. Also, my last release for the foreseeable :)'
 soundtrack: 'album/0qxsfpy2VU0i4eDR9RTaAU'

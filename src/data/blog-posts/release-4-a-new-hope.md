@@ -1,5 +1,6 @@
 ---
 title: 'Release IV: A New Hope'
+from11ty: true
 publishDate: 25 Aug 2021
 description: It is a period of lockdowns in the galaxy. A brave UI developer has challenged the tyranny and oppression of his lack of DOCUMENTATION.
 soundtrack: playlist/37i9dQZF1E4AkVvUGC4y8b

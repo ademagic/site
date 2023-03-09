@@ -1,5 +1,6 @@
 ---
 title: Hello, World! Again!
+from11ty: true
 publishDate: 30 Mar 2020
 description: The new site's live! But at what cost??... and with what tech?
 soundtrack: playlist/4tmFAU51n3ytOBr4vy90fz
