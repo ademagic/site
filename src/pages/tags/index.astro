@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import getTags from '../../utils/getTags';
 
 const title = 'Tags';
 const description = 'A list of tags associated with my blogposts to help you browse them better.';
@@ -7,7 +8,7 @@ const permalink = `${Astro.site.href}tags`;
 
 let allPosts = await Astro.glob('../../data/blog-posts/*.md');
 
-let allTags = [...new Set(allPosts.map(a => a.frontmatter.tags).flat())];
+let allTags = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="blog">
