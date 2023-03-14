@@ -4,6 +4,8 @@
   --text-secondary: #6b6f72;
   --text-highlight: #fff;
   --primary-color: #33a6c1;
+  --code-body: #2e3440ff;
+  --code-text: #d8dee9ff;
   --font-family-serif: Merriweather, serif;
   --font-family-sans: 'Fira Sans', sans-serif;
 }
@@ -14,6 +16,8 @@
   --text-secondary: #ccc;
   --text-highlight: #fff;
   --primary-color: #c24756;
+  --code-body: #2e3440ff;
+  --code-text: #d8dee9ff;
 }
 
 *,
@@ -131,7 +135,8 @@ hr {
 code {
   font-family: 'SF Mono', menlo, inconsolata, monospace;
   font-size: calc(1em - 2px);
-  color: #555;
+  color: var(--code-text);
+  background-color: var(--code-body);
   padding: 0.2em 0.4em;
   border-radius: 2px;
   -webkit-font-smoothing: antialiased;
@@ -142,6 +147,7 @@ pre {
   border-radius: 8px !important;
   margin: 1.2em 0 !important;
   padding: 1.2em;
+  background-color: var(--code-body);
 }
 
 pre code {
