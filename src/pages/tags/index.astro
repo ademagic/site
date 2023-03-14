@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Tags';
+const description = 'A list of tags associated with my blogposts to help you browse them better.';
+const permalink = `${Astro.site.href}tags`;
+
+let allPosts = await Astro.glob('../../data/blog-posts/*.md');
+
+let allTags = [...new Set(allPosts.map(a => a.frontmatter.tags).flat())];
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} current="blog">
+  <div class="container">
+    <h1>Tags</h1>
+    <p>{description}</p>
+    <ul class="tag-list">
+      {
+        allTags.map((tag, index) => (
+          <li class="tag">
+            <a href={`/tags/${tag}`}>{tag}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .tag {
+    display: inline-block;
+    background-color: var(--code-text);
+    color: var(--code-body);
+    margin: 0 0 0.5em 0.5em;
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+  }
+</style>
