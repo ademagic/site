@@ -1,8 +1,8 @@
 ---
 title: 'Release 6: Missed It'
-publishDate: 17 Mar 2023
+publishDate: 15 Mar 2023
 description: A follow up to the Astro rebuild release, later than I'd like, but better than never. My dog ate my homework. 
-soundtrack: album/6jWde94ln40epKIQCd8XUh
+soundtrack: album/6Zp3lHvX486zv8iDPeeXR7
 tags:
   - release
   - site
