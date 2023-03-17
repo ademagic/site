@@ -8,7 +8,7 @@ const permalink = `${Astro.site.href}tags`;
 
 let allPosts = await Astro.glob('../../data/blog-posts/*.md');
 
-let allTags = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
+let {tags: allTags, tagCount} = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="blog">
@@ -17,9 +17,10 @@ let allTags = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
     <p>{description}</p>
     <ul class="tag-list">
       {
-        allTags.map((tag, index) => (
+        allTags.map((tag) => (
           <li class="tag">
             <a href={`/tags/${tag}`}>{tag}</a>
+            <span>{tagCount[tag]}</span>
           </li>
         ))
       }
@@ -28,6 +29,10 @@ let allTags = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
 </BaseLayout>
 
 <style>
+  .tag-list {
+    margin: 0;
+    padding: 0;
+  }
   .tag {
     display: inline-block;
     background-color: var(--code-text);
@@ -35,5 +40,20 @@ let allTags = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
     margin: 0 0 0.5em 0.5em;
     padding: 0.2em 0.5em;
     border-radius: 4px;
+  }
+
+  .tag span {
+    display: inline-block;
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px var(--code-text);
+    color: var(--code-body);
+    text-align: center;
+    font-size: 14px;
+    font-family: var(--font-family-sans);
+    background-color: var(--text-highlight);
+    vertical-align: middle;
+    height: 1.5em;
+    line-height: 1.5;
+    width: 1.5em;
   }
 </style>
