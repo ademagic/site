@@ -1,0 +1,57 @@
+---
+const {text, link, count} = Astro.props;
+---
+
+<style>
+  div {
+    background-color: var(--code-text);
+    color: var(--code-body);
+    border-radius: 1.25em;
+    font-family: var(--font-family-sans);
+    font-size: 1rem;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+
+  a {
+    font-weight: normal;
+    text-decoration: none;
+    padding: 0.5em 1em;
+  }
+  
+  div:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+  }
+
+  div:hover a {
+    color: initial;
+  }
+
+  span {
+    display: inline-block;
+    border-radius: 50%;
+    color: var(--code-body);
+    text-align: center;
+    font-size: 14px;
+    font-family: var(--font-family-sans);
+    background-color: var(--text-highlight);
+    vertical-align: middle;
+    height: 1.5em;
+    line-height: 1.5;
+    width: 1.5em;
+    position: absolute;
+    left: 0.75em;
+    top: 0.55em;
+  }
+
+  span + a {
+    padding-left: 2.5em;
+  }
+
+</style>
+
+<div>
+  <span>{count}</span>
+  <a href={link}>{text}</a>
+</div>
