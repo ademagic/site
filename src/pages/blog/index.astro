@@ -33,6 +33,7 @@ const sortedTags = Object.fromEntries(
     </ul>
     {allPosts.map((post, index) => {
       const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
+      if (post.frontmatter.tags.includes('release')) return false;
       return (
         <div>
           { index !== 0 && <hr /> }
