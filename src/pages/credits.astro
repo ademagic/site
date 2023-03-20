@@ -4,6 +4,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Credits';
 const description = 'This site was built with some great tools, some of them open-source. You can find a list on this page.';
 const permalink = `${Astro.site.href}credits`;
+let allPosts = await Astro.glob('../data/blog-posts/*.md');
+const latestRelease = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()).find(a => a.frontmatter.tags.includes('release'));
+
+console.log(latestRelease.frontmatter);
+
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="credits">
@@ -16,5 +21,35 @@ const permalink = `${Astro.site.href}credits`;
     <p>A super-simple starter for Astro which I used to get my site up and running quickly.</p>
     <h3><a href="https://svelte.dev/">Svelte</a></h3>
     <p>A JavaScript framework for build-time JS compilation, which the Blog Template came preconfigured with.</p>
+    <hr/>
+    <h3>Latest Release</h3>
+    <div class="post-item">
+      <h2>
+        <a href={`/blog/${latestRelease.file.split('/').pop().split('.').shift()}`}>{latestRelease.frontmatter.title}</a>
+      </h2>
+      <p>{latestRelease.frontmatter.description}</p>
+      <div class="post-item-footer">
+        <span class="post-item-date">— {latestRelease.frontmatter.publishDate}</span>
+      </div>
+    </div>
   </div>
 </BaseLayout>
+
+<style>
+  h2,
+  .post-item-footer {
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+  }
+
+  .post-item-date {
+    color: var(--text-secondary);
+    text-align: left;
+    text-transform: uppercase;
+    margin-right: 16px;
+  }
+
+  hr {
+    margin: 60px auto;
+  }
+</style>
