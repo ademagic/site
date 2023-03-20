@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Bio from '../../components/Bio.astro';
 import Foreword from '../../components/Foreword.astro';
 import getPostData from '../../utils/getPostData';
+import Tag from '../../components/Tag.astro';
 
 export async function getStaticPaths() {
   const posts = await Astro.glob('../../data/blog-posts/*.md');
@@ -23,7 +24,7 @@ const permalink = `${Astro.site.href}blog/${slug}`;
     <p>{publishDate} ~ {readingTime}</p>
     <h1>{title}</h1>
     {tags &&
-      <p>Tagged with {tags.map(tag => <a href={`/tags/${tag}`}>{tag}</a>)}</p>
+      <div>Tagged with <ul>{tags.map(tag => <li><Tag text={tag} link={`/tags/${tag}`}/></li>)}</ul></div>
     }
     <hr />
   </header>
@@ -68,4 +69,16 @@ const permalink = `${Astro.site.href}blog/${slug}`;
     min-width: 100px;
     width: 30%;
   }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    display: inline;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 0 0.5em 0.5em;
+  }
+
 </style>
