@@ -1,5 +1,5 @@
 ---
-const {text, link, count} = Astro.props;
+const {text, link, count = false} = Astro.props;
 ---
 
 <style>
@@ -52,6 +52,6 @@ const {text, link, count} = Astro.props;
 </style>
 
 <div>
-  <span>{count}</span>
+  {count && <span>{count}</span>}
   <a href={link}>{text}</a>
 </div>
