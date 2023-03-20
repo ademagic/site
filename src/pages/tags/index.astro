@@ -9,7 +9,12 @@ const permalink = `${Astro.site.href}tags`;
 
 let allPosts = await Astro.glob('../../data/blog-posts/*.md');
 
-let {tags: allTags, tagCount} = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
+let {tagCount: tags} = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
+
+const sortedTags = Object.fromEntries(
+    Object.entries(tags).sort(([,va],[,vb]) => vb - va)
+);
+
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="blog">
@@ -18,9 +23,9 @@ let {tags: allTags, tagCount} = getTags(allPosts.map(a => ({tags: a.frontmatter.
     <p>{description}</p>
     <ul class="tag-list">
       {
-        allTags.map((tag) => (
+        Object.keys(sortedTags).map((tag) => (
           <li>
-            <Tag text={tag} link={`/tags/${tag}`} count={tagCount[tag]} />
+            <Tag text={tag} link={`/tags/${tag}`} count={tags[tag]} />
           </li>
         ))
       }
