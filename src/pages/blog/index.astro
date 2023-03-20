@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Tag from '../../components/Tag.astro';
+
+import getTags from '../../utils/getTags';
 
 const title = 'Blog';
 const description = 'Look, I figure if I write these things down somewhere, hopefully I\'ll learn something. Enjoy.';
@@ -7,12 +10,27 @@ const permalink = `${Astro.site.href}blog`;
 
 let allPosts = await Astro.glob('../../data/blog-posts/*.md');
 allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
+let {tagCount: tags} = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
+
+const sortedTags = Object.fromEntries(
+    Object.entries(tags).sort(([,va],[,vb]) => vb - va)
+);
+
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="blog">
   <div class="container">
     <h1>Blog</h1>
     <p>{description}</p>
+    <h3>Top tags</h3>
+    <ul>
+      {
+        Object.entries(sortedTags).slice(0,5).map(([tag,]) => <li><Tag text={tag} link={`/tags/${tag}`} /></li>)
+      }
+      <li>
+        <a href="/tags">Browse by tags ⟶</a>
+      </li>
+    </ul>
     {allPosts.map((post, index) => {
       const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
       return (
@@ -49,5 +67,20 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
 
   hr {
     margin: 60px auto;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 0 0.5em 0.5em;
+  }
+
+  li a {
+    font-size: 1rem;
+    font-family: var(--font-family-sans);
+    text-decoration: none;
   }
 </style>
