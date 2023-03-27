@@ -4,8 +4,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Credits';
 const description = 'This site was built with some great tools, some of them open-source. You can find a list on this page.';
 const permalink = `${Astro.site.href}credits`;
-let allPosts = await Astro.glob('../data/blog-posts/*.md');
-const latestRelease = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()).find(a => a.frontmatter.tags.includes('release'));
+let allReleases = await Astro.glob('../data/releases/*.md');
+const latestRelease = allReleases.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()).find(a => a.frontmatter.tags.includes('release'));
 
 ---
 
@@ -23,11 +23,12 @@ const latestRelease = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate
     <h3>Latest Release</h3>
     <div class="post-item">
       <h2>
-        <a href={`/blog/${latestRelease.file.split('/').pop().split('.').shift()}`}>{latestRelease.frontmatter.title}</a>
+        <a href={`/releases/${latestRelease.file.split('/').pop().split('.').shift()}`}>{latestRelease.frontmatter.title}</a>
       </h2>
       <p>{latestRelease.frontmatter.description}</p>
       <div class="post-item-footer">
         <span class="post-item-date">— {latestRelease.frontmatter.publishDate}</span>
+        <a class="post-item-date" href="/releases">Other releases</a>
       </div>
     </div>
   </div>

@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Bio from '../../components/Bio.astro';
+import getPostData from '../../utils/getPostData';
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../data/releases/*.md');
+  return posts.map(p => ({
+    params: { slug: p.file.split('/').pop().split('.').shift() },
+    props: { post: p },
+  }));
+}
+
+const { Content, frontmatter } = Astro.props.post;
+const { title, description, publishDate, foreword} = frontmatter;
+const { slug, readingTime } = getPostData(Astro.props.post);
+const permalink = `${Astro.site.href}releases/${slug}`;
+---
+
+<BaseLayout title={title} description={description} permalink={permalink}>
+  <header>
+    <p>{publishDate} ~ {readingTime}</p>
+    <h1>{title}</h1>
+    <hr />
+  </header>
+  <div class="container">
+    <article class="content">
+      <Content />
+    </article>
+    <hr />
+    <Bio />
+  </div>
+</BaseLayout>
+
+<style>
+  header {
+    text-align: center;
+  }
+
+  header h1 {
+    margin-bottom: 0.7em;
+  }
+
+  header p {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-family: var(--font-family-sans);
+    font-weight: 600;
+  }
+
+  header a {
+    background-color: var(--code-text);
+    color: var(--code-body);
+    margin: 0 0 0.5em 0.5em;
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+    box-shadow: none;
+  }
+
+  header hr {
+    min-width: 100px;
+    width: 30%;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    display: inline;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 0 0.5em 0.5em;
+  }
+
+</style>

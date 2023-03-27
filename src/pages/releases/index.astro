@@ -1,25 +1,24 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = 'Blogposts from 11ty';
-const description = 'This is a list of posts written on my old site. You probably didn\'t mean to get here but that\'s ok.';
-const permalink = `${Astro.site.href}blog`;
+const title = 'Releases';
+const description = 'A somewhat curated written history of this website.';
+const permalink = `${Astro.site.href}releases`;
 
-let allPosts = await Astro.glob('../../data/blog-posts/*.md');
 let allReleases = await Astro.glob('../../data/releases/*.md');
-allPosts = allPosts
-  .concat(allReleases)
-  .filter(a => a.frontmatter.from11ty)
+allReleases = allReleases
   .sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
+
+console.log(allReleases[0].frontmatter);
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="blog">
+<BaseLayout title={title} description={description} permalink={permalink}>
   <div class="container">
-    <h1>The Vault!</h1>
+    <h1>Releases</h1>
     <p>{description}</p>
-    <p>The links below will take you to the new versions of each post. Or, you can just <a href="/blog">go to the Blog page</a>.</p>
-    {allPosts.map((post, index) => {
-      const href = `/posts/${post.file.split('/').pop().split('.').shift()}`;
+    <p>You can check out more details in the <a href="https://www.github.com/ademagic/site">GitHub Repository</a>.</p>
+    {allReleases.map((post, index) => {
+      const href = `/releases/${post.file.split('/').pop().split('.').shift()}`;
       return (
         <div>
           { index !== 0 && <hr /> }
@@ -54,5 +53,20 @@ allPosts = allPosts
 
   hr {
     margin: 60px auto;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 0 0.5em 0.5em;
+  }
+
+  li a {
+    font-size: 1rem;
+    font-family: var(--font-family-sans);
+    text-decoration: none;
   }
 </style>
