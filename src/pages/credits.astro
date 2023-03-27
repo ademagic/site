@@ -7,8 +7,6 @@ const permalink = `${Astro.site.href}credits`;
 let allPosts = await Astro.glob('../data/blog-posts/*.md');
 const latestRelease = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()).find(a => a.frontmatter.tags.includes('release'));
 
-console.log(latestRelease.frontmatter);
-
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="credits">
