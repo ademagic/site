@@ -6,11 +6,15 @@ export interface Props {
   title: string;
   description: string;
   permalink: string;
+  socialImage?: string;
 }
 
-const { title, description, permalink } = Astro.props;
-const socialUrl = Astro.site.href + 'assets/avatar.png'
-const fullTitle = `${title} | Miko Ademagic`
+const { title, description, permalink, socialImage } = Astro.props;
+
+const socialAsset = (socialImage !== undefined) ? socialImage : 'assets/social.jpg';
+const socialUrl = Astro.site.href + socialAsset;
+const fullTitle = `${title} | Miko Ademagic`;
+
 ---
 
 <!-- Global Metadata -->

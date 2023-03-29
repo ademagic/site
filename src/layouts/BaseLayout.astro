@@ -8,12 +8,13 @@ export interface Props {
   description: string;
   permalink: string;
   current?: string;
+  socialImage?: string;
 }
-const { title, description, permalink, current } = Astro.props;
+const { title, description, permalink, current, socialImage } = Astro.props;
 ---
 <html lang="en">
 <head>
-  <BaseHead title={title} description={description} permalink={permalink} />
+  <BaseHead title={title} description={description} permalink={permalink} socialImage={socialImage} />
 </head>
 <body>
   <div class="layout">
