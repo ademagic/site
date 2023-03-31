@@ -1,5 +1,6 @@
 :root {
   --background-body: #fff;
+  --background-body-alt: #eaf6f8;
   --text-main: #36393b;
   --text-secondary: #6b6f72;
   --text-highlight: #fff;
@@ -12,6 +13,7 @@
 
 :root.theme-dark {
   --background-body: #202122;
+  --background-body-alt: #242c2d;
   --text-main: #fff;
   --text-secondary: #ccc;
   --text-highlight: #fff;
