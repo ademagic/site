@@ -11,10 +11,11 @@ export interface Props {
   socialImage?: string;
 }
 const { title, description, permalink, current, socialImage } = Astro.props;
+
 ---
 <html lang="en">
 <head>
-  <BaseHead title={title} description={description} permalink={permalink} socialImage={socialImage} />
+  <BaseHead title={title} description={description} permalink={permalink} {(socialImage !== undefined) && {socialImage}} />
 </head>
 <body>
   <div class="layout">

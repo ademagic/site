@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import getPostData from '../../utils/getPostData';
 import getTags from '../../utils/getTags';
 
 export async function getStaticPaths() {
@@ -23,7 +22,7 @@ const description = `${postList.length} posts tagged with ${slug}`
 const permalink = `${Astro.site.href}tags/${slug}`;
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} socialImage={frontmatter.socialImage} current="blog">
+<BaseLayout title={title} description={description} permalink={permalink} current="blog">
   <div class="container">
     <div class="container">
       <h1>{title}</h1>
