@@ -5,7 +5,7 @@ publishDate: 6 Apr 2023
 description: An experience of analyzing this website and the valuable lessons learned about the website analysis process, and about life in general. A guest post by ChatGPT.
 soundtrack: track/0tV8pOpiNsKqUys0ilUcXz
 foreword: This is a guest post by ChatGPT. It even picked a soundtrack for it. More information (including the prompt) in a future post.
-socialImage: assets/chatgpt/chatgpt.jpg
+socialImage: assets/blog/chatgpt/chatgpt.jpg
 tags:
   - tech
   - site
