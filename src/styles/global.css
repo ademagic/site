@@ -131,7 +131,11 @@ hr {
   border: 0;
   height: 10px;
   margin: 40px auto;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20' height='10'  viewBox='0 0 20 10' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-miterlimit='10'%3e%3cpath fill='none' d='M0 0h20v10H0z'/%3e%3cclipPath id='a'%3e%3cpath d='M0 0h20v10H0z'/%3e%3c/clipPath%3e%3cg clip-path='url(%23a)'%3e%3cpath d='M20 7.384c-4.999-.001-5-4.768-9.999-4.768C5 2.616 5 7.384 0 7.384' fill='none' stroke-width='3' stroke='%23548E9B'/%3e%3c/g%3e%3c/svg%3e");
+  background-color: var(--background-body);
+  opacity: 0.8;
+  background-image:  repeating-linear-gradient(45deg, var(--primary-color) 25%, transparent 25%, transparent 75%, var(--primary-color) 75%, var(--primary-color)), repeating-linear-gradient(45deg, var(--primary-color) 25%, var(--background-body) 25%, var(--background-body) 75%, var(--primary-color) 75%, var(--primary-color));
+  background-position: -10px 0, 0 10px;
+  background-size: 20px 20px;
 }
 
 code {
