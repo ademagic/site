@@ -4,6 +4,7 @@ import Bio from '../../components/Bio.astro';
 import Foreword from '../../components/Foreword.astro';
 import getPostData from '../../utils/getPostData';
 import Tag from '../../components/Tag.astro';
+import SpotifyEmbed from '../../components/SpotifyEmbed.astro';
 
 export async function getStaticPaths() {
   const posts = await Astro.glob('../../data/blog-posts/*.md');
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
 }
 
 const { Content, frontmatter } = Astro.props.post;
-const { title, description, publishDate, foreword, tags, socialImage } = frontmatter;
+const { title, description, publishDate, foreword, tags, socialImage, soundtrack } = frontmatter;
 const { slug, readingTime } = getPostData(Astro.props.post);
 const permalink = `${Astro.site.href}blog/${slug}`;
 ---
@@ -26,7 +27,7 @@ const permalink = `${Astro.site.href}blog/${slug}`;
     {tags &&
       <div>Tagged with <ul>{tags.map(tag => <li><Tag text={tag} link={`/tags/${tag}`}/></li>)}</ul></div>
     }
-    <hr />
+    {soundtrack && <SpotifyEmbed link={soundtrack} />}
   </header>
   <div class="container">
     <article class="content">
