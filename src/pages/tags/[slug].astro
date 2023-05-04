@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import getTags from '../../utils/getTags';
 
+import Tag from '../../components/Tag.astro';
+
 export async function getStaticPaths() {
   const allPosts = await Astro.glob('../../data/blog-posts/*.md');
   let {tags: tagList} = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
@@ -18,15 +20,14 @@ const { slug } = Astro.params;
 const { frontmatter } = Astro.props;
 const postList = Astro.props.postList.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf())
 const title = `Tag: ${slug}`
-const description = `${postList.length} posts tagged with ${slug}`
 const permalink = `${Astro.site.href}tags/${slug}`;
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="blog">
+<BaseLayout title={title} description={`${postList.length} posts tagged with ${slug}`} permalink={permalink} current="blog">
   <div class="container">
     <div class="container">
       <h1>{title}</h1>
-      <p>{description}</p>
+      <p>{postList.length} posts tagged with <Tag text={slug} /></p>
       <p><a href="/tags">&lt; Back to Tags</a></p>
       {postList.map((post, index) => {
         const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;

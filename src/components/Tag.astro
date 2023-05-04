@@ -3,7 +3,8 @@ const {text, link, count = false} = Astro.props;
 ---
 
 <style>
-  div {
+  .tag {
+    display: inline-block;
     background-color: var(--code-text);
     color: var(--code-body);
     border-radius: 1.25em;
@@ -13,45 +14,44 @@ const {text, link, count = false} = Astro.props;
     position: relative;
   }
 
-  a {
+  .tag a {
     font-weight: normal;
     text-decoration: none;
     padding: 0.5em 1em;
+    box-shadow: none;
   }
   
-  div:hover {
+  .tag:hover {
     background-color: var(--primary-color);
     cursor: pointer;
   }
 
-  div:hover a {
-    color: initial;
+  .tag:hover a {
+    color: white;
+    box-shadow: none;
   }
 
-  span {
-    display: inline-block;
+  .tag:hover .count {
+    color: white;
+  }
+
+  .count {
     border-radius: 50%;
-    color: var(--code-body);
-    text-align: center;
+    color: var(--primary-color);
     font-size: 14px;
     font-family: var(--font-family-sans);
-    background-color: var(--text-highlight);
     vertical-align: middle;
-    height: 1.5em;
-    line-height: 1.5;
-    width: 1.5em;
-    position: absolute;
-    left: 0.75em;
-    top: 0.55em;
+    line-height: 1.6;
+    margin-left: 1em
   }
 
-  span + a {
-    padding-left: 2.5em;
+  .count + a {
+    padding-left: .5em;
   }
 
 </style>
 
-<div>
-  {count && <span>{count}</span>}
+<span class="tag">
+  {count && <span class="count">{count}</span>}
   <a href={link}>{text}</a>
-</div>
+</span>
