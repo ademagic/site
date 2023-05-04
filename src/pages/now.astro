@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Now';
+const description = 'What I am focusing on at this point in my life. Based on nownownow.com';
+const permalink = `${Astro.site.href}now`;
+---
+
+<BaseLayout title={title} description={description} permalink={permalink}>
+  <div class="container">
+    <h1>Now</h1>
+    <p><a href="https://nownownow.com/about" target="_blank" rel="noreferrer noopener">Now</a> pages are more stable than a social media feed and less permanent than an <a href="/about">About</a> page. Updated monthly-ish.</p>
+    <ul>
+      <li>
+        <h2>May</h2>
+        <span class="date">04/05/23</span>
+        <p>I'm trying to get back into the habit of working on my site after some time focusing on personal things (and holidaying in Fiji). My site is something that's brought me joy over the past year, and has helped me grease my coding gears in times when I couldn't get them moving. It's important to me that i keep it fresh and maintainable.
+        <p>A "Now" page is something I recently heard about, and really aligns with my perspective on my presence on the internet, social media, and the indie web. So, here it is.</p>
+        <ul>
+          <li>Made it through my first year of being a Dad. Happy Birthday, kiddo.</li>
+          <li>Working more on Native apps than on Web projects. It's been an exciting paradigm change, and an interesting design challenge.</li>
+          <li>Slowly dusting off the Manager part of my career (and brain).</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .date {
+    font-family: var(--font-family-sans);
+    color: var(--text-secondary);
+  }
+</style>
