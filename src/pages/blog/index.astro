@@ -10,6 +10,7 @@ const permalink = `${Astro.site.href}blog`;
 
 let allPosts = await Astro.glob('../../data/blog-posts/*.md');
 allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
+const featuredPost = allPosts.find(post => post.frontmatter.featured);
 let {tagCount: tags} = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
 
 const sortedTags = Object.fromEntries(
@@ -31,6 +32,23 @@ const sortedTags = Object.fromEntries(
         <a href="/tags">Browse by tags ⟶</a>
       </li>
     </ul>
+    { featuredPost &&
+        <h2>Featured Post</h2>
+        <div class="featured">
+          <figure>
+            <img src={`/${featuredPost.frontmatter.socialImage}`} alt={featuredPost.frontmatter.metaDescription} />
+          </figure>
+          <div class="post-item">
+            <h3>
+              <a href={`/blog/${featuredPost.file.split('/').pop().split('.').shift()}`}>{featuredPost.frontmatter.title}</a>
+            </h3>
+            <p>{featuredPost.frontmatter.description}</p>
+            <div class="post-item-footer">
+              <span class="post-item-date">— {featuredPost.frontmatter.publishDate}</span>
+            </div>
+          </div>
+        </div>
+    }
     {allPosts.map((post, index) => {
       const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
       if (post.frontmatter.tags.includes('release')) return false;
@@ -82,5 +100,13 @@ const sortedTags = Object.fromEntries(
     font-size: 1rem;
     font-family: var(--font-family-sans);
     text-decoration: none;
+  }
+
+  .featured {
+    border: 1px solid var(--primary-color);
+    margin-bottom: 4em;
+    margin-top: 2em;
+    padding: 2rem 1.5rem;
+    box-shadow: -5px 5px 0 var(--primary-color-transparent);
   }
 </style>

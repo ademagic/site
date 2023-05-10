@@ -5,6 +5,7 @@
   --text-secondary: #6b6f72;
   --text-highlight: #fff;
   --primary-color: #33a6c1;
+  --primary-color-transparent: rgba(51, 166, 193, 0.2);
   --code-body: #2e3440ff;
   --code-text: #d8dee9ff;
   --font-family-serif: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
@@ -18,6 +19,7 @@
   --text-secondary: #ccc;
   --text-highlight: #fff;
   --primary-color: #c24756;
+  --primary-color-transparent: rgba(194, 71, 86, 0.2);
   --code-body: #2e3440ff;
   --code-text: #d8dee9ff;
 }
