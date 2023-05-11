@@ -1,24 +1,60 @@
 ---
+import FeaturedPost from '../components/FeaturedPost.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Hi there!';
 const description = 'UI Developer from Sydney, Australia.';
 const permalink = Astro.site.href;
+
+let allPosts = await Astro.glob('../data/blog-posts/*.md');
+const latestPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()).slice(0, 2);
+
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
-  <div class="home-container">
+  <div class="home-container hero">
     <div class="home-copy">
-      <h1>Hi, I'm Miko.</h1>
-      <p>I'm a <span class="emphasis">Design-focused UI developer</span> from Sydney, Australia.<br/>I like working on Design Systems, UX, Accessibility and generally <span class="emphasis">making good things for good people</span>.</p>
-      <p>Reach out on <a rel="me" href="https://indieweb.social/@ademagic">the Elephant</a>, <a href="https://twitter.com/miko_a">the Bird</a>, or <a href="https://github.com/ademagic">the Octocat</a>. Or even <a href="https://linkedin.com/in/mikoademagic">the LinkedIn</a>.</p>
+      <h1 class="home">Hi, I'm Miko.</h1>
+      <p class="home">I'm a <span class="emphasis">Design-focused UI developer</span> from Sydney, Australia.<br/>I like working on Design Systems, UX, Accessibility and generally <span class="emphasis">making good things for good people</span>.</p>
+      <p class="home">Reach out on <a rel="me" href="https://indieweb.social/@ademagic">the Elephant</a>, <a href="https://twitter.com/miko_a">the Bird</a>, or <a href="https://github.com/ademagic">the Octocat</a>. Or even <a href="https://linkedin.com/in/mikoademagic">the LinkedIn</a>.</p>
     </div>
 
-    <div class="hero-image-container">
+    <!-- <div class="hero-image-container">
       <picture>
-        <!-- <source srcset="/assets/home-illustration.webp" media="(min-width: 600px)">
-        <img class="hero-image" alt="Illustration of person reading a book" src="/assets/home-illustration-small.webp" width="550" height="466"> -->
+        <source srcset="/assets/home-illustration.webp" media="(min-width: 600px)">
+        <img class="hero-image" alt="Illustration of person reading a book" src="/assets/home-illustration-small.webp" width="550" height="466">
       </picture>
+    </div> -->
+  </div>
+
+  <div class="home-container">
+    <div class="home-copy">
+      <h2 class="home">Latest From The Blog</h2>
+      <div class="grid">
+        <div class="left">
+          <FeaturedPost />
+        </div>
+  
+        <div class="right">
+          {latestPosts.map((post, index) => {
+            const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
+            return (
+              <div>
+                { index !== 0 && <hr /> }
+                <div class="post-item">
+                  <h2>
+                    <a href={href}>{post.frontmatter.title}</a>
+                  </h2>
+                  <p>{post.frontmatter.description}</p>
+                  <div class="post-item-footer">
+                    <span class="post-item-date">— {post.frontmatter.publishDate}</span>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
     </div>
   </div>
 </BaseLayout>
@@ -33,18 +69,28 @@ const permalink = Astro.site.href;
     min-height: 400px;
   }
 
+  .hero {
+    min-height: 75vh;
+  }
+
   .home-copy {
     flex: 1;
     padding: 0 1em;
   }
 
-  .home-copy h1 {
+  h1.home {
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+  }
+  h2.home {
+    font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0.5em;
     line-height: 1.3;
   }
 
-  .home-copy p {
+  p.home {
     font-size: 1.4em;
   }
 
@@ -53,6 +99,12 @@ const permalink = Astro.site.href;
     color: var(--text-highlight);
     padding-left: 0.2em;
     padding-right: 0.2em;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6rem;
   }
 
   .hero-image-container {
@@ -77,6 +129,21 @@ const permalink = Astro.site.href;
     margin-bottom: 1em;
   }
 
+  .post-item h2 {
+    margin-top: 0;
+  }
+  .post-item-footer {
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+  }
+
+  .post-item-date {
+    color: var(--text-secondary);
+    text-align: left;
+    text-transform: uppercase;
+    margin-right: 16px;
+  }
+
   @media (max-width: 1200px) {
     p {
       font-size: 1.2em;
@@ -88,6 +155,10 @@ const permalink = Astro.site.href;
   }
 
   @media (max-width: 800px) {
+
+    .hero {
+      min-height: 50vh;
+    }
     .home-container {
       flex-direction: column;
     }
@@ -95,7 +166,11 @@ const permalink = Astro.site.href;
     .home-copy {
       flex: 0;
       padding-bottom: 2em;
-      text-align: center;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
     }
   }
 </style>
