@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Tag from '../../components/Tag.astro';
+import Card from '../../components/Card.astro';
 
 import getTags from '../../utils/getTags';
 
@@ -34,7 +35,7 @@ const sortedTags = Object.fromEntries(
     </ul>
     { featuredPost &&
         <h2>Featured Post</h2>
-        <div class="featured">
+        <Card>
           <figure>
             <img src={`/${featuredPost.frontmatter.socialImage}`} alt={featuredPost.frontmatter.metaDescription} />
           </figure>
@@ -47,7 +48,8 @@ const sortedTags = Object.fromEntries(
               <span class="post-item-date">— {featuredPost.frontmatter.publishDate}</span>
             </div>
           </div>
-        </div>
+        </Card>
+        <hr/>
     }
     {allPosts.map((post, index) => {
       const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
@@ -102,11 +104,7 @@ const sortedTags = Object.fromEntries(
     text-decoration: none;
   }
 
-  .featured {
-    border: 1px solid var(--primary-color);
-    margin-bottom: 4em;
-    margin-top: 2em;
-    padding: 2rem 1.5rem;
-    box-shadow: -5px 5px 0 var(--primary-color-transparent);
+  h2 {
+    margin-bottom: 1.2em;
   }
 </style>
