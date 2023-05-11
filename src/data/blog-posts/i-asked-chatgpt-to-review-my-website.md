@@ -5,7 +5,6 @@ publishDate: 9 May 2023
 description: ...and all I got was this lousy blogpost. I break down ChatGPT's review of my site, and how I interpreted it.
 soundtrack: album/4tuqA7qbVsPukqsYPPrcF7?si=3verGNEwQ9ivkBnFXKWHZQ
 socialImage: assets/blog/chatgpt-review/review.jpg
-featured: true
 tags:
   - tech
   - site
