@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Tag from '../../components/Tag.astro';
-import Card from '../../components/Card.astro';
 
 import getTags from '../../utils/getTags';
+import FeaturedPost from '../../components/FeaturedPost.astro';
 
 const title = 'Blog';
 const description = 'Look, I figure if I write these things down somewhere, hopefully I\'ll learn something. Enjoy.';
@@ -11,7 +11,6 @@ const permalink = `${Astro.site.href}blog`;
 
 let allPosts = await Astro.glob('../../data/blog-posts/*.md');
 allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
-const featuredPost = allPosts.find(post => post.frontmatter.featured);
 let {tagCount: tags} = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
 
 const sortedTags = Object.fromEntries(
@@ -33,24 +32,7 @@ const sortedTags = Object.fromEntries(
         <a href="/tags">Browse by tags ⟶</a>
       </li>
     </ul>
-    { featuredPost &&
-        <h2>Featured Post</h2>
-        <Card>
-          <figure>
-            <img src={`/${featuredPost.frontmatter.socialImage}`} alt={featuredPost.frontmatter.metaDescription} />
-          </figure>
-          <div class="post-item">
-            <h3>
-              <a href={`/blog/${featuredPost.file.split('/').pop().split('.').shift()}`}>{featuredPost.frontmatter.title}</a>
-            </h3>
-            <p>{featuredPost.frontmatter.description}</p>
-            <div class="post-item-footer">
-              <span class="post-item-date">— {featuredPost.frontmatter.publishDate}</span>
-            </div>
-          </div>
-        </Card>
-        <hr/>
-    }
+    <FeaturedPost withTitle/>
     {allPosts.map((post, index) => {
       const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
       if (post.frontmatter.tags.includes('release')) return false;

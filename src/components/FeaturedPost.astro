@@ -1,0 +1,34 @@
+---
+import Card from './Card.astro';
+
+const { withTitle } = Astro.props;
+let allPosts = await Astro.glob('../data/blog-posts/*.md');
+allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
+const featuredPost = allPosts.find(post => post.frontmatter.featured);
+---
+
+{ featuredPost &&
+  <>
+    {withTitle && <h2>Featured</h2>}
+    <Card>
+      <figure>
+        <img src={`/${featuredPost.frontmatter.socialImage}`} alt={featuredPost.frontmatter.metaDescription} />
+      </figure>
+      <div class="post-item">
+        <h3>
+          <a href={`/blog/${featuredPost.file.split('/').pop().split('.').shift()}`}>{featuredPost.frontmatter.title}</a>
+        </h3>
+        <p>{featuredPost.frontmatter.description}</p>
+        <div class="post-item-footer">
+          <span class="post-item-date">— {featuredPost.frontmatter.publishDate}</span>
+        </div>
+      </div>
+    </Card>
+  </>
+}
+
+<style>
+  h2 {
+    margin-bottom: 1.2em !important;
+  }
+</style>
