@@ -5,6 +5,8 @@ const { withTitle } = Astro.props;
 let allPosts = await Astro.glob('../data/blog-posts/*.md');
 allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
 const featuredPost = allPosts.find(post => post.frontmatter.featured);
+const featuredImage = (featuredPost.frontmatter.socialImage !== undefined) ? featuredPost.frontmatter.socialImage : 'assets/social.jpg';
+
 ---
 
 { featuredPost &&
@@ -12,7 +14,7 @@ const featuredPost = allPosts.find(post => post.frontmatter.featured);
     {withTitle && <h2>Featured</h2>}
     <Card>
       <figure>
-        <img src={`/${featuredPost.frontmatter.socialImage}`} alt={featuredPost.frontmatter.metaDescription} />
+        <img src={`/${featuredImage}`} alt={featuredPost.frontmatter.metaDescription} />
       </figure>
       <div class="post-item">
         <h3>

@@ -4,6 +4,7 @@ metaTitle: I rebuilt my 11ty website in Astro
 publishDate: 4 Apr 2023
 description: Some notes on how I migrated my website to a new one, using Astro as the static site generator.
 soundtrack: album/4kp8sfeCDUMm4JKRdrD3aC
+featured: true
 tags:
   - tech
   - site
