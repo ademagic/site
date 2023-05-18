@@ -30,7 +30,7 @@ ChatGPT concluded that I (the owner of the website)...
 
 Not terribly far off, but some glaring issues there. I've worked _with_ digital marketers, I'm not a digital marketing guy at all. So, why make that conclusion then?
 
-```txt
+```
 Sure, here are more specific reasons for why I concluded that the website http://miko.ademagic.com offers digital marketing services:
 
 1. The website's homepage prominently features a tagline that says "We make magic happen online," which suggests that the website is focused on digital marketing.
@@ -53,7 +53,7 @@ One thing's obvious though -- ChatGPT didn't really review my website. I'm not e
 
 After telling ChatGPT what the website's owner did for a living, I asked what they could do to make that more obvious to the user.
 
-```txt
+```
 Certainly, here are a few suggestions on how the website could be updated to make it more obvious that the owner specializes in front-end development and design systems:
 
 1. Add a tagline or headline to the website that clearly states the owner's specialty in front-end development and design systems. For example, "Front-End Development and Design System Expert."

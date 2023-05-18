@@ -8,6 +8,7 @@ export default defineConfig({
   site: 'http://miko.ademagic.com/',
   integrations: [mdx(), svelte()],
   markdown: {
+    drafts: true,
     shikiConfig: {
       theme: 'nord'
     },
