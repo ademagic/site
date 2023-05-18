@@ -7,6 +7,7 @@ soundtrack: track/4NQfrmGs9iQXVQI9IpRhjM
 socialImage: assets/blog/remote-work/remote-work.jpg
 socialImageAttribution: Photo by <a href="https://unsplash.com/@goran_ivos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Goran Ivos</a> on <a href="https://unsplash.com/photos/idmvPhF8t4E?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 featured: true
+draft: true
 tags:
   - remote-working
   - work
