@@ -5,7 +5,7 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'http://miko.ademagic.com/',
+  site: 'https://miko.ademagic.com/',
   integrations: [mdx(), svelte()],
   markdown: {
     drafts: true,
