@@ -15,7 +15,18 @@ export async function getStaticPaths() {
 }
 
 const { Content, frontmatter } = Astro.props.post;
-const { title, description, publishDate, foreword, tags, socialImage, soundtrack } = frontmatter;
+const {
+  title,
+  description,
+  publishDate,
+  foreword,
+  tags,
+  socialImageCaption,
+  socialImage,
+  socialImageAlt,
+  socialImageAttribution,
+  soundtrack 
+} = frontmatter;
 const { slug, readingTime } = getPostData(Astro.props.post);
 const permalink = `${Astro.site.href}blog/${slug}`;
 ---
@@ -28,6 +39,21 @@ const permalink = `${Astro.site.href}blog/${slug}`;
       <div>Tagged with <ul>{tags.map(tag => <li><Tag text={tag} link={`/tags/${tag}`}/></li>)}</ul></div>
     }
     {soundtrack && <SpotifyEmbed link={soundtrack} />}
+    {
+      socialImage &&
+      <figure>
+        <img
+          alt={(socialImageAlt !== undefined) ? socialImageAlt : `Alt text missing for ${title}. Please reach out and let me know.`}
+          src={`/${socialImage}`}
+        />
+        <figcaption>
+          {socialImageCaption && <p>{socialImageCaption}</p>}
+          {
+            socialImageAttribution && <p>Photo by <a href={socialImageAttribution.authorUrl}>{socialImageAttribution.author}</a> on <a href={socialImageAttribution.sourceUrl}>{socialImageAttribution.source}</a></p>
+          }
+        </figcaption>
+      </figure>
+    }
   </header>
   <div class="container">
     <article class="content">
@@ -69,6 +95,33 @@ const permalink = `${Astro.site.href}blog/${slug}`;
   header hr {
     min-width: 100px;
     width: 40%;
+  }
+
+  figure {
+    margin-left: -3em;
+    margin-right: -3em;
+  }
+  figure img {
+    width: 80%;
+  }
+
+  figcaption p {
+    font-size: 1rem;
+    text-transform: none;
+  }
+
+  figcaption a,
+  figcaption a:hover {
+    background-color: initial;
+    color: inherit;
+    padding: 0;
+    margin: initial;
+    text-decoration: underline;
+  }
+
+  figcaption a:hover {
+    color: var(--primary-color);
+    box-shadow: unset;
   }
 
   ul {
