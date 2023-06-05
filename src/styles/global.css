@@ -13,8 +13,8 @@
 }
 
 :root.theme-dark {
-  --background-body: #202122;
-  --background-body-alt: #242c2d;
+  --background-body: #0a0909;
+  --background-body-alt: #161111;
   --text-main: #fff;
   --text-secondary: #ccc;
   --text-highlight: #fff;
@@ -22,6 +22,10 @@
   --primary-color-transparent: rgba(194, 71, 86, 0.2);
   --code-body: #2e3440ff;
   --code-text: #d8dee9ff;
+}
+
+:root.theme-dark img {
+  filter: brightness(0.85) saturate(0.85);
 }
 
 *,
