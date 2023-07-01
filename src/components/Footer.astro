@@ -4,18 +4,20 @@ const latestRelease = allReleases.sort((a, b) => new Date(b.frontmatter.publishD
 ---
 
 <footer>
-  <div>
+  <div class="footerGrid">
     <div class="left">
-      <span>
-        &copy; {new Date().getFullYear()} Miko Ademagic.
+      <div class="socials">
+        <span>
+          &copy; {new Date().getFullYear()} Miko Ademagic.
+        </span>
         <ul>
           <li><a target="_blank" rel="noopener nofollow" href="https://indieweb.social/@ademagic">Mastodon</a></li>
           <li><a target="_blank" rel="noopener nofollow" href="https://twitter.com/miko_a">Twitter</a></li>
           <li><a target="_blank" rel="noopener nofollow" href="https://github.com/ademagic">Github</a></li>
           <li><a target="_blank" rel="noopener nofollow" href="https://www.linkedin.com/in/mikoademagic/">Linkedin</a></li>
         </ul>
-      </span>
-      <div>
+      </div>
+      <div class="release">
         <span>Latest Release: <a href={`/releases/${latestRelease.file.split('/').pop().split('.').shift()}`}>{latestRelease.frontmatter.title}</a></span>
       </div>
     </div>
@@ -36,51 +38,95 @@ const latestRelease = allReleases.sort((a, b) => new Date(b.frontmatter.publishD
   footer {
     background-color: var(--background-body-alt);
     color: var(--text-main);
-    padding: 5em 2em;
+    padding: 2em;
     font-size: 1rem;
     margin: 8em auto 0;
     width: 100%;
   }
 
-  footer > div {
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 2;
+  }
+
+  .footerGrid {
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    max-width: 1400px;
-    margin: 1em auto;
-    padding: 0 1em;
+  }
+
+  .right {
+    order: -1;
+    margin-bottom: 2em;
+    border-bottom: 1px solid var(--primary-color-transparent);
   }
 
   .left {
     display: grid;
-    grid-template-rows: 3fr 1fr;
-    grid-gap: 1rem 2rem;
+    grid-template-columns: 1fr 1fr;
   }
 
   .left ul {
-    display: block;
-    text-align: left;
     margin: 0;
   }
 
   .left li {
     display: inline-block;
   }
+
   .left li + li {
     margin-left: 1px solid var(--text-main);
   }
 
-  ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    list-style: none;
-    grid-gap: 1rem 2rem;
-    padding-inline-start: 0px;
+  .release {
     text-align: right;
   }
 
-  li {
-    font-size: 1rem;
-    margin: 0;
-    line-height: 2;
+  @media (min-width: 600px) {
+    footer {
+      padding: 5em 2em;
+    }
+
+    li {
+      display: block;
+    }
+    .footerGrid {
+      grid-template-columns: 2fr 1fr;
+      max-width: 1400px;
+      margin: 1em auto;
+      padding: 0 1em;
+    }
+
+    .right {
+      order: 0;
+      margin-bottom: 0;
+      border-bottom: 0;
+      border-left: 1px solid var(--primary-color-transparent);
+    }
+    .left {
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: auto;
+      grid-gap: 1rem 2rem;
+    }
+
+    .left ul {
+      display: block;
+      text-align: left;
+    }
+
+    .release { 
+      text-align: left;
+    }
+
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem 2rem;
+      padding-inline-start: 0px;
+      text-align: right;
+    }
   }
-</style>
+  </style>
