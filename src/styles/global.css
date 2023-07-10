@@ -222,6 +222,13 @@ td {
   width: 100%;
 }
 
+
+.container.wide {
+  margin: 0 auto;
+  max-width: 64em;
+  width: 100%;
+}
+
 .content h1 {
   font-size: 3em;
   margin: 1em 0;

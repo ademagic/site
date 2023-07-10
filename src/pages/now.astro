@@ -8,17 +8,23 @@ const permalink = `${Astro.site.href}now`;
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
-  <div class="container">
-    <h1>Now</h1>
-    <p><a href="https://nownownow.com/about" target="_blank" rel="noreferrer noopener">Now</a> pages are more stable than a social media feed and less permanent than an <a href="/about">About</a> page. Updated monthly-ish.</p>
-    <Card>
-      <h5>Currently...</h5>
-      <ul>
-        <li>🎧:<a href="https://www.last.fm/music/Hermanos+Guti%C3%A9rrez/_/Cerca+De+Ti">Hermanos Gutierrez - Cerca De Ti</a></li>
-        <li>🎸: Nothing (for now).</li>
-        <li>📖: <a href="https://amzn.asia/d/9Vyk7r2">Engineering Management for the Rest of Us - Sarah Drasner</a></li>
-      </ul>
-    </Card>
+  <div class="container wide">
+    <div class="grid">
+      <div class="left">
+        <h1>Now</h1>
+        <p><a href="https://nownownow.com/about" target="_blank" rel="noreferrer noopener">Now</a> pages are more stable than a social media feed and less permanent than an <a href="/about">About</a> page. Updated monthly-ish.</p>
+      </div>
+      <div class="right">
+        <Card>
+          <ul class="nowlist">
+            <li>🎧:<a href="https://www.last.fm/music/Hermanos+Guti%C3%A9rrez/_/Cerca+De+Ti">Hermanos Gutierrez - Cerca De Ti</a></li>
+            <li>🎸: Nothing (for now).</li>
+            <li>📖: <a href="https://amzn.asia/d/9Vyk7r2">Engineering Management for the Rest of Us - Sarah Drasner</a></li>
+          </ul>
+        </Card>
+      </div>
+    </div>
+    <hr/>
     <ul>
       <li>
         <h2>July</h2>
@@ -56,5 +62,18 @@ const permalink = `${Astro.site.href}now`;
   .date {
     font-family: var(--font-family-sans);
     color: var(--text-secondary);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .right {
+    margin-left: 3em;
+  }
+
+  .nowlist {
+    list-style: none;
   }
 </style>
