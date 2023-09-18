@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Tag from '../../components/Tag.astro';
+import BlogCard from '../../components/BlogCard.astro';
 
 import getTags from '../../utils/getTags';
-import FeaturedPost from '../../components/FeaturedPost.astro';
 
 const title = 'Blog';
-const description = 'Look, I figure if I write these things down somewhere, hopefully I\'ll learn something. Enjoy.';
+const description = 'I mainly write about web development, management, and working in tech. But maybe you\'ll find something else, who knows?';
 const permalink = `${Astro.site.href}blog`;
 
 let allPosts = await Astro.glob('../../data/blog-posts/*.md');
@@ -20,37 +20,38 @@ const sortedTags = Object.fromEntries(
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="blog">
-  <div class="container">
+  <div class="container wide">
     <h1>Blog</h1>
     <p>{description}</p>
     <h3>Top tags</h3>
     <ul>
       {
-        Object.entries(sortedTags).slice(0,5).map(([tag,]) => <li><Tag text={tag} link={`/tags/${tag}`} /></li>)
+        Object.entries(sortedTags).slice(0,7).map(([tag,]) => <li><Tag text={tag} link={`/tags/${tag}`} /></li>)
       }
       <li>
         <a href="/tags">Browse by tags ⟶</a>
       </li>
     </ul>
-    <FeaturedPost withTitle/>
-    {allPosts.map((post, index) => {
-      const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
-      if (post.frontmatter.tags.includes('release')) return false;
-      return (
-        <div>
-          { index !== 0 && <hr /> }
-          <div class="post-item">
-            <h2>
-              <a href={href}>{post.frontmatter.title}</a>
-            </h2>
-            <p>{post.frontmatter.description}</p>
-            <div class="post-item-footer">
-              <span class="post-item-date">— {post.frontmatter.publishDate}</span>
-            </div>
-          </div>
-        </div>
-      )
-    })}
+    <div class="grid">
+      {allPosts.map((post) => {
+        const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
+        if (post.frontmatter.tags.includes('release')) return false;
+        const postImage = (post.frontmatter.socialImage !== undefined) ? post.frontmatter.socialImage : 'assets/social.jpg';
+        const socialImageAlt = (post.frontmatter.socialImageAlt !== undefined) ? post.frontmatter.socialImageAlt : `alt text is missing for ${post.frontmatter.title} social image. Please let me know.`;
+
+        return (
+          <BlogCard
+            href={href}
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            publishDate={post.frontmatter.publishDate}
+          >
+            <img class="post-image" slot="postImage" src={`/${postImage}`} alt={socialImageAlt} />
+          </BlogCard>
+        )
+      })}
+    </div>
+    <p class="home"><a href="/blog">Browse the Blog ⟶</a></p>
   </div>
 </BaseLayout>
 
@@ -88,5 +89,19 @@ const sortedTags = Object.fromEntries(
 
   h2 {
     margin-bottom: 1.2em;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1.2rem;
+    row-gap: 1.2rem;
+  }
+
+  @media (max-width: 800px) {
+
+    .grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
   }
 </style>
