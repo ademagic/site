@@ -1,5 +1,5 @@
 ---
-import FeaturedPost from '../components/FeaturedPost.astro';
+import BlogCard from '../components/BlogCard.astro';
 import Tag from '../components/Tag.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -33,32 +33,24 @@ const latestPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).
     <div class="home-copy">
       <h2 class="home">Latest From The Blog</h2>
       <div class="grid">
-        <div class="left">
-          <FeaturedPost />
-        </div>
-  
-        <div class="right">
-          {latestPosts.map((post, index) => {
-            const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
-            return (
-              <div>
-                { index !== 0 && <hr /> }
-                <div class="post-item">
-                  <h2>
-                    <a href={href}>{post.frontmatter.title}</a>
-                  </h2>
-                  <p>{post.frontmatter.description}</p>
-                  <div class="post-item-footer">
-                    <span class="post-item-date">— {post.frontmatter.publishDate}</span><br/>
-                    <span class="post-item-date">{post.frontmatter.tags.map((tag) => <Tag text={tag} link={`/tags/${tag}`} />)}</span>
-                  </div>
-                </div>
-              </div>
-            )
-          })}
-          <p class="home"><a href="/blog">Browse the Blog ⟶</a></p>
-        </div>
+        {latestPosts.map((post) => {
+          const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
+          const postImage = (post.frontmatter.socialImage !== undefined) ? post.frontmatter.socialImage : 'assets/social.jpg';
+          const socialImageAlt = (post.frontmatter.socialImageAlt !== undefined) ? post.frontmatter.socialImageAlt : `alt text is missing for ${post.frontmatter.title} social image. Please let me know.`;
+
+          return (
+            <BlogCard
+              href={href}
+              title={post.frontmatter.title}
+              description={post.frontmatter.description}
+              publishDate={post.frontmatter.publishDate}
+            >
+              <img class="post-image" slot="postImage" src={`/${postImage}`} alt={socialImageAlt} />
+            </BlogCard>
+          )
+        })}
       </div>
+      <p class="home"><a href="/blog">Browse the Blog ⟶</a></p>
     </div>
   </div>
 </BaseLayout>
@@ -107,8 +99,9 @@ const latestPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).
 
   .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 6rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1.2rem;
+    row-gap: 1.2rem;
   }
 
   .hero-image-container {
@@ -131,21 +124,6 @@ const latestPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).
     width: 100%;
     max-width: 550px;
     margin-bottom: 1em;
-  }
-
-  .post-item h2 {
-    margin-top: 0;
-  }
-  .post-item-footer {
-    font-family: var(--font-family-sans);
-    font-weight: 700;
-  }
-
-  .post-item-date {
-    color: var(--text-secondary);
-    text-align: left;
-    text-transform: uppercase;
-    margin-right: 16px;
   }
 
   .latest p.home {

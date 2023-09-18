@@ -1,0 +1,69 @@
+---
+const { postImage, href, title, description, publishDate  } = Astro.props;
+let allPosts = await Astro.glob('../data/blog-posts/*.md');
+allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
+const featuredPost = allPosts.find(post => post.frontmatter.featured);
+const featuredImage = (featuredPost.frontmatter.socialImage !== undefined) ? featuredPost.frontmatter.socialImage : 'assets/social.jpg';
+const socialImageAlt = (featuredPost.frontmatter.socialImageAlt !== undefined) ? featuredPost.frontmatter.socialImageAlt : `alt text is missing for ${featuredPost.frontmatter.title} social image. Please let me know.`;
+
+---
+
+<aside>
+  <figure class="post-image-container">
+    <div class="post-image"><slot name="postImage" /></div>
+  </figure>
+  <div class="post-item">
+    <h3>
+      <a href={href}>{title}</a>
+    </h3>
+    <p>{description}</p>
+    <div class="post-item-footer">
+      <span class="post-item-date">— {publishDate}</span>
+      <span class="post-item-read"><a href={href}>Read</a></span>
+    </div>
+    <slot />
+  </div>
+</aside>
+
+<style>
+  aside {
+    border: 1px solid var(--primary-color);
+    box-shadow: -5px 5px 0 var(--primary-color-transparent);
+  }
+
+  .post-image-container {
+    height: 12em;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 0 !important;
+  }
+  
+  .post-image {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  .post-item {
+    padding: 2rem 1.5rem;
+  }
+
+  .post-item-footer {
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+  }
+
+  .post-item-date {
+    color: var(--text-secondary);
+    text-align: left;
+    text-transform: uppercase;
+    margin-right: 16px;
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+</style>
+  
