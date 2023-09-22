@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/Card.astro';
+import { timerMessage } from 'astro/dist/core/logger/core';
 
 const title = 'Now';
 const description = 'What I am focusing on at this point in my life. Based on nownownow.com';
@@ -30,6 +31,16 @@ const track = data.recenttracks.track[0];
     </div>
     <hr/>
     <ul>
+      <li>
+        <h2>September</h2>
+        <span class="date">22/09/23</span>
+        <p>We moved! Bought our first apartment, excited to make our home here after moving out of our home of the past 7. It's been a challenge to get in front of the computer at times, but it's slowly working out.</p>
+        <ul>
+          <li>Really making an effort to work on my site more. Trying to create myself an easy to consume tasklist</li>
+          <li>Finished off a mammoth effort of implementing notifications on Android and iOS... Was a tricky back and forth, but a satisfying outcome.</li>
+          <li>After the end of our office lease, my company has decided to go fully remote for the short term. Hoping to write a few blogposts about our experience.</li>
+        </ul>
+      </li>
       <li>
         <h2>August</h2>
         <span class="date">03/08/23</span>
