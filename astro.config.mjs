@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
 import mdx from '@astrojs/mdx';
+import rehypeExternalLinks from 'rehype-external-links'
 
 
 // https://astro.build/config
@@ -8,11 +9,10 @@ export default defineConfig({
   site: 'https://miko.ademagic.com/',
   integrations: [mdx(), svelte()],
   markdown: {
-    drafts: true,
     shikiConfig: {
       theme: 'nord'
     },
-    rehypePlugins: [['rehype-external-links', {
+    rehypePlugins: [[rehypeExternalLinks, {
       target: '_blank'
     }]]
   }
