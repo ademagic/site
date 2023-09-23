@@ -1,5 +1,6 @@
 # miko.ademagic.com
 ### My home on the internet.
+[![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
 
 This is the repository for my personal website and blog, [miko.ademagic.com](https://miko.ademagic.com). It was built on [Astro](https://astro.build) using [Maxi Ferreira](https://twitter.com/Charca)'s [Astro Blog Template](https://github.com/Charca/astro-blog-template).
 
