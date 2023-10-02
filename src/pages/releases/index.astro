@@ -6,8 +6,16 @@ const description = 'A somewhat curated written history of this website.';
 const permalink = `${Astro.site.href}releases`;
 
 let allReleases = await Astro.glob('../../data/releases/*.md');
-allReleases = allReleases
-  .sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
+// allReleases = allReleases
+//   .sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
+const releasesByYear = allReleases.reduce((group, release) => {
+  const year = new Date(release.frontmatter.publishDate).getFullYear();
+  group[year] = group[year] ?? [];
+  group[year].push(release);
+  return group;
+}, {});
+
+const allYears = Object.keys(releasesByYear);
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
@@ -15,55 +23,38 @@ allReleases = allReleases
     <h1>Releases</h1>
     <p>{description}</p>
     <p>You can check out more details in the <a href="https://www.github.com/ademagic/site">GitHub Repository</a>.</p>
-    {allReleases.map((post, index) => {
-      const href = `/releases/${post.file.split('/').pop().split('.').shift()}`;
-      return (
-        <div>
-          { index !== 0 && <hr /> }
-          <div class="post-item">
-            <h2>
-              <a href={href}>{post.frontmatter.title}</a>
-            </h2>
-            <p>{post.frontmatter.description}</p>
-            <div class="post-item-footer">
-              <span class="post-item-date">— {post.frontmatter.publishDate}</span>
-            </div>
+    {
+      allYears.reverse().map(year => {
+        return (
+          <div>
+            <h2>{year}</h2>
+            <ul>
+              {
+                releasesByYear[year]
+                  .sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf())
+                  .map((post, index) => {
+                    const href = `/releases/${post.file.split('/').pop().split('.').shift()}`;
+                    return (
+                      <li>
+                        <p><a href={href}>{post.frontmatter.title}</a>: {post.frontmatter.description}</p>
+                      </li>
+                    )
+                  })
+              }
+            </ul>
           </div>
-        </div>
-      )
-    })}
+        )
+      })
+    }
   </div>
 </BaseLayout>
 
 <style>
-  .post-item-footer {
-    font-family: var(--font-family-sans);
-    font-weight: 700;
-  }
-
-  .post-item-date {
-    color: var(--text-secondary);
-    text-align: left;
-    text-transform: uppercase;
-    margin-right: 16px;
-  }
-
-  hr {
-    margin: 60px auto;
-  }
   ul {
     margin: 0;
     padding: 0;
   }
-
   li {
-    display: inline-block;
-    margin: 0 0 0.5em 0.5em;
-  }
-
-  li a {
-    font-size: 1rem;
-    font-family: var(--font-family-sans);
-    text-decoration: none;
+    margin: 0 0 1rem 1rem;
   }
 </style>
