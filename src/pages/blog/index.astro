@@ -30,15 +30,17 @@ const sortedTags = Object.fromEntries(
   <div class="container wide">
     <h1>Blog</h1>
     <p>{description}</p>
-    <h3>Top tags</h3>
-    <ul>
-      {
-        Object.entries(sortedTags).slice(0,7).map(([tag,]) => <li><Tag text={tag} link={`/tags/${tag}`} /></li>)
-      }
-      <li>
-        <a href="/tags">Browse by tags ⟶</a>
-      </li>
-    </ul>
+    <div class="tag-list">
+      <h3>Top tags</h3>
+      <ul>
+        {
+          Object.entries(sortedTags).slice(0,7).map(([tag,]) => <li><Tag text={tag} link={`/tags/${tag}`} /></li>)
+        }
+        <li>
+          <a href="/tags">Browse by tags ⟶</a>
+        </li>
+      </ul>
+    </div>
     <div class="grid">
       {currentPosts.map((post) => {
         if (post.frontmatter.tags.includes('release')) return false;
@@ -73,6 +75,10 @@ const sortedTags = Object.fromEntries(
     text-align: left;
     text-transform: uppercase;
     margin-right: 16px;
+  }
+
+  .tag-list {
+    margin-bottom: 1.2rem;
   }
 
   hr {
