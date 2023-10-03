@@ -2,16 +2,16 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogCard from '../../components/BlogCard.astro';
 
+import {diffMonth, diffYear} from '../../utils/dateDiff';
+
 const title = 'Blog Archive';
 const description = 'Tech can age very quickly. Any post over 2 years old is taken off the blog page and retires here for your nostalgic reading enjoyment.';
 const permalink = `${Astro.site.href}blog/archive`;
 
 let allPosts = await Astro.glob('../../data/blog-posts/*.md');
 allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
-const currentYear = new Date().getFullYear();
 const archivedPosts = allPosts.map((post) => {
-  const postYear = new Date(post.frontmatter.publishDate).getFullYear()
-  if (currentYear - postYear > 2) {
+  if (diffMonth(new Date(post.frontmatter.publishDate), new Date()) > 24) {
     return post;
   }
 }).filter(e => e !== undefined);
@@ -36,7 +36,7 @@ const archivedPosts = allPosts.map((post) => {
             href={href}
             title={post.frontmatter.title}
             description={post.frontmatter.description}
-            publishDate={post.frontmatter.publishDate}
+            publishDate={`${post.frontmatter.publishDate} (${diffYear(new Date(post.frontmatter.publishDate), new Date())} years old)`}
           >
             <img class="post-image" slot="postImage" src={`/${postImage}`} alt={socialImageAlt} />
           </BlogCard>

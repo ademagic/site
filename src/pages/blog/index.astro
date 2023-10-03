@@ -4,6 +4,7 @@ import Tag from '../../components/Tag.astro';
 import BlogCard from '../../components/BlogCard.astro';
 
 import getTags from '../../utils/getTags';
+import {diffMonth} from '../../utils/dateDiff';
 
 const title = 'Blog';
 const description = 'I mainly write about web development, management, and working in tech. But maybe you\'ll find something else, who knows?';
@@ -14,8 +15,7 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
 let {tagCount: tags} = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
 const currentYear = new Date().getFullYear();
 const currentPosts = allPosts.map((post) => {
-  const postYear = new Date(post.frontmatter.publishDate).getFullYear()
-  if (currentYear - postYear <= 2) {
+  if (diffMonth(new Date(post.frontmatter.publishDate), new Date()) < 24) {
     return post;
   }
 }).filter(e => e !== undefined);
