@@ -1,28 +1,21 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Tag from '../../components/Tag.astro';
 import BlogCard from '../../components/BlogCard.astro';
 
-import getTags from '../../utils/getTags';
-
-const title = 'Blog';
-const description = 'I mainly write about web development, management, and working in tech. But maybe you\'ll find something else, who knows?';
-const permalink = `${Astro.site.href}blog`;
+const title = 'Blog Archive';
+const description = 'Tech can age very quickly. Any post over 2 years old is taken off the blog page and retires here for your nostalgic reading enjoyment.';
+const permalink = `${Astro.site.href}blog/archive`;
 
 let allPosts = await Astro.glob('../../data/blog-posts/*.md');
 allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
-let {tagCount: tags} = getTags(allPosts.map(a => ({tags: a.frontmatter.tags})));
 const currentYear = new Date().getFullYear();
-const currentPosts = allPosts.map((post) => {
+const archivedPosts = allPosts.map((post) => {
   const postYear = new Date(post.frontmatter.publishDate).getFullYear()
-  if (currentYear - postYear <= 2) {
+  if (currentYear - postYear > 2) {
     return post;
   }
 }).filter(e => e !== undefined);
 
-const sortedTags = Object.fromEntries(
-    Object.entries(tags).sort(([,va],[,vb]) => vb - va)
-);
 
 ---
 
@@ -30,19 +23,11 @@ const sortedTags = Object.fromEntries(
   <div class="container wide">
     <h1>Blog</h1>
     <p>{description}</p>
-    <h3>Top tags</h3>
-    <ul>
-      {
-        Object.entries(sortedTags).slice(0,7).map(([tag,]) => <li><Tag text={tag} link={`/tags/${tag}`} /></li>)
-      }
-      <li>
-        <a href="/tags">Browse by tags ⟶</a>
-      </li>
-    </ul>
+    <p>You can still find these posts by <a href="/tags">browsing by tag</a>.</p>
     <div class="grid">
-      {currentPosts.map((post) => {
-        if (post.frontmatter.tags.includes('release')) return false;
+      {archivedPosts.map((post) => {
         const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
+        if (post.frontmatter.tags.includes('release')) return false;
         const postImage = (post.frontmatter.socialImage !== undefined) ? post.frontmatter.socialImage : 'assets/social.jpg';
         const socialImageAlt = (post.frontmatter.socialImageAlt !== undefined) ? post.frontmatter.socialImageAlt : `alt text is missing for ${post.frontmatter.title} social image. Please let me know.`;
 
@@ -58,7 +43,7 @@ const sortedTags = Object.fromEntries(
         )
       })}
     </div>
-    <p>If you'd like to read my older posts, you can <a href="/blog/archive">browse the archive ⟶</a></p>
+    <p class="home"><a href="/blog">Back to the Blog ⟶</a></p>
   </div>
 </BaseLayout>
 
