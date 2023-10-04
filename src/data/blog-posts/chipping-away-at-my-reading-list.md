@@ -21,7 +21,7 @@ tags:
 
 Every morning before I start working (unless I have pressing work to get stuck into), I warm up my brain by:
 
-1. Going through my email to see new issues of Newsletters I've subscribed to.
+1. Going through my email to see new issues of newsletters I've subscribed to.
 2. Checking dev.to, medium, hacker news, linkedin, github etc. for some new tech content.
 3. Trawling some tech related social media for a little bit, just to see if there's anything else I've missed.
 4. Doing the Wordles.
