@@ -49,7 +49,7 @@ So without breaking these down further, that's 355 items to read. Some of the bo
 I've barely started and it already feels like this will be a heavy task. So, I've decided to create a series of blogposts for it. I'll also tag them all with [chipping-away](/tags/chipping-away) for easier browsing later, but this'll be where the series starts off. When each post is published, I'll add a link here.
 
 - [Chipping Away Part 0: When do I read this](#part-0-when-do-i-read-all-this)
-- Chipping Away Part 1: It's deletin' time
+- [Chipping Away Part 1: It's deletin' time](/blog/chipping-away-part-1)
 - Chipping Away Part 2: Chewing through the Twitter Bookmarks
 - Chipping Away Part 3: Whittling away the other resources
 - Chipping Away Part ?: ???
