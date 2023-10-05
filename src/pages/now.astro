@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/Card.astro';
-import { timerMessage } from 'astro/dist/core/logger/core';
 
 const title = 'Now';
 const description = 'What I am focusing on at this point in my life. Based on nownownow.com';
@@ -23,7 +22,7 @@ const track = data.recenttracks.track[0];
         <Card>
           <ul class="nowlist">
             {track && <li>🎧:<a href={track.url}>{track.artist?.name} - {track.name}</a></li>}
-            <li>📚: <a href="/blog/chipping-away-at-my-reading-list">316 <span class="plus">+0</span> <span class="minus">-168</span></a></li>
+            <li>📚: <a href="/blog/chipping-away-at-my-reading-list">230 <span class="plus">+3</span> <span class="minus">-89</span></a></li>
             <li>📖: <a href="https://amzn.asia/d/9Vyk7r2">Engineering Management for the Rest of Us - Sarah Drasner</a></li>
             <li>🎸: Nothing (for now).</li>
           </ul>
