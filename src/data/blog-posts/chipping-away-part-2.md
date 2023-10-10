@@ -16,6 +16,7 @@ tags:
   - reading-list
   - chipping-away
   - professional-development
+coreTag: chipping-away
 ---
 
 > This is part of a series. You can check out the original post called [Chipping away at my Reading List](/blog/chipping-away-at-my-reading-list), where you'll also find the other posts. At the time of writing, my reading list is *316 items*.
@@ -54,4 +55,4 @@ The bookmarks list was far too eclectic to organise, and far too niche to just r
 
 Don't count it in my list of readings, and just get better at assessing things to add to my reading list in future. Given it was less work, and probably a better use of my time, I decided on the latter.
 
-I added 3 articles to the readings list, and a few were already on there, so the readings now sit at *171*. But, once you remove the bookmarks from the readings list that brings the grand total down to *230*. Still not great, but things are starting to feel more approachable.
+I added 3 articles to the readings list, and a few were already on there, so my to-do list of readings alone sits at *171*. But, once you remove the bookmarks from the overall list, it brings the grand total down to *230*. Still not great, but things are starting to feel more approachable.
