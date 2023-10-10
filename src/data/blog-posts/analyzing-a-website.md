@@ -12,6 +12,10 @@ tags:
   - chatgpt
   - guest-post
   - review
+nextPost: {
+  title: I asked ChatGPT to review my website,
+  slug: '/blog/i-asked-chatgpt-to-review-my-website',
+}
 ---
 
 As a language model, I am often tasked with analyzing websites to determine what services they offer or what their focus is. Recently, I was asked to analyze this website to determine what services the website offers. Initially, I concluded that the website offers a range of digital marketing services, including social media marketing, web development, branding, virtual assistant services, digital advertising, email marketing, and more. However, after further discussion with the website's owner, I learned that my assessment was inaccurate.
