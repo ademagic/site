@@ -5,14 +5,7 @@ import Foreword from '../../components/Foreword.astro';
 import getPostData from '../../utils/getPostData';
 import Tag from '../../components/Tag.astro';
 import SpotifyEmbed from '../../components/SpotifyEmbed.astro';
-
-export async function getStaticPaths() {
-  const posts = await Astro.glob('../../data/blog-posts/*.md');
-  return posts.map(p => ({
-    params: { slug: p.file.split('/').pop().split('.').shift() },
-    props: { post: p },
-  }));
-}
+import getTags from '../../utils/getTags';
 
 const { Content, frontmatter } = Astro.props.post;
 const {
@@ -21,6 +14,7 @@ const {
   publishDate,
   foreword,
   tags,
+  nextPost,
   socialImageCaption,
   socialImage,
   socialImageAlt,
@@ -28,7 +22,26 @@ const {
   soundtrack 
 } = frontmatter;
 const { slug, readingTime } = getPostData(Astro.props.post);
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../data/blog-posts/*.md');
+  return posts.map(p => {
+    const coreTag = p.frontmatter.coreTag;
+    const thisPost = p.frontmatter.title;
+    const relatedPostsTag = (coreTag !== undefined) ? coreTag : p.frontmatter.tags[0];
+    return ({
+      params: { slug: p.file.split('/').pop().split('.').shift() },
+      props: {
+        post: p,
+        relatedPosts:  posts.filter(post => (post.frontmatter.tags.includes(relatedPostsTag) && post.frontmatter.title !== thisPost))
+       },
+    }
+  )});
+}
+
 const permalink = `${Astro.site.href}blog/${slug}`;
+const relatedPosts = Astro.props.relatedPosts.slice(0, 3);
+
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="blog" socialImage={socialImage}>
@@ -57,12 +70,42 @@ const permalink = `${Astro.site.href}blog/${slug}`;
   </header>
   <div class="container">
     <article class="content">
-      {foreword && <Foreword>
-        {foreword}
-      </Foreword>}
+      {
+        foreword &&
+        <Foreword>
+          {foreword}
+        </Foreword>
+      }
       <Content />
     </article>
     <hr />
+    <div class="related">
+      <div class="left">{relatedPosts && 
+        <span>Related Posts</span>
+        <ul>
+          {
+            relatedPosts.map(p => (
+              <li>
+                <p>
+                  <a href={`/blog/${p.file.split('/').pop().split('.').shift()}`}>{p.frontmatter.title}</a>
+                </p>
+              </li>
+            ))
+          }
+        </ul>}
+      </div>
+      <div class="right">
+        {
+          nextPost && 
+          <div>
+            <span>Next post</span>
+            <p><a href={nextPost.slug}>{nextPost.title}</a></p>
+          </div>
+        }
+      </div>
+    </div>
+    <hr />
+
     <Bio />
   </div>
 </BaseLayout>
@@ -133,6 +176,29 @@ const permalink = `${Astro.site.href}blog/${slug}`;
   li {
     display: inline-block;
     margin: 0 0 0.5em 0.5em;
+  }
+  
+  .related {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 1rem;
+  }
+
+  .related .left *,
+  .related .right * {
+    font-size: 1em;
+  }
+
+  .related .right {
+    text-align: right;
+  }
+
+  .related li {
+    display: list-item;
+  }
+
+  .related span {
+    font-weight: bold;
   }
 
 </style>
