@@ -15,6 +15,11 @@ tags:
   - reading-list
   - chipping-away
   - professional-development
+coreTag: chipping-away
+nextPost: {
+  title: "Chipping away Part 1: It's deletin' time",
+  slug: '/blog/chipping-away-part-1',
+}
 ---
 
 ## I have a problem

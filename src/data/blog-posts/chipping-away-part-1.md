@@ -16,6 +16,11 @@ tags:
   - reading-list
   - chipping-away
   - professional-development
+coreTag: chipping-away
+nextPost: {
+  title: "Chipping away Part 2: Chewing through Twitter Bookmarks",
+  slug: '/blog/chipping-away-part-2',
+}
 ---
 
 > This is part of a series. You can check out the original post called [Chipping away at my Reading List](/blog/chipping-away-at-my-reading-list), where you'll also find the other posts. At the time of writing, my reading list is *355 items*.
