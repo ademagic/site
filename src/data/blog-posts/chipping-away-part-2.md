@@ -3,7 +3,7 @@ title: "Chipping away Part 2: Chewing through Twitter Bookmarks"
 metaTitle: Why do I bookmark things and How can I make sure I read them?
 publishDate: 09 Oct 2023
 description: This step will probably add things to my list, thereby having the opposite effect.
-soundtrack: track/53JikKhl8qa1kGOs7BH7oA
+soundtrack: track/0VgkVdmE4gld66l8iyGjgx
 socialImage: assets/blog/reading-list/chewing.jpg
 socialImageAttribution: {
   author: Clay Banks,
