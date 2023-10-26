@@ -55,8 +55,8 @@ I've barely started and it already feels like this will be a heavy task. So, I'v
 
 - [Chipping Away Part 0: When do I read this](#part-0-when-do-i-read-all-this)
 - [Chipping Away Part 1: It's deletin' time](/blog/chipping-away-part-1)
-- Chipping Away Part 2: Chewing through the Twitter Bookmarks
-- Chipping Away Part 3: Whittling away the other resources
+- [Chipping Away Part 2: Chewing through the Twitter Bookmarks](/blog/chipping-away-part-2)
+- [Chipping Away Part 3: Whittling away the other resources](/blog/chipping-away-part-3)
 - Chipping Away Part ?: ???
 
 I'll be sure to write about any interesting or insightful patterns I may have noticed. I'll also add the reading list statistics to my [now page](/now), if you're curious!

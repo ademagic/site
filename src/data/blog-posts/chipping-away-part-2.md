@@ -17,6 +17,10 @@ tags:
   - chipping-away
   - professional-development
 coreTag: chipping-away
+nextPost: {
+  title: "Chipping away Part 3: Whittling away the other resources",
+  slug: '/blog/chipping-away-part-3',
+}
 ---
 
 > This is part of a series. You can check out the original post called [Chipping away at my Reading List](/blog/chipping-away-at-my-reading-list), where you'll also find the other posts. At the time of writing, my reading list is *316 items*.
