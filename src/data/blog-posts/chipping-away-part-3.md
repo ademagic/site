@@ -46,6 +46,6 @@ So that's **59** potential things to get rid of from my list of **231**. Let's d
 ## How it went
 
 These lists are knocked out now, at least. Everything is now consolidated.
-Which means I removed **59** posts from my reading list, and through saving some, added back 18. My reading list is at a nice round number of **190**.
+Which means I removed **59** posts from my reading list, and through saving some, added back 15. My reading list is at a nice round number of **190**.
 
 A good place to start from... ?
