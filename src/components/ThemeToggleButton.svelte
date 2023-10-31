@@ -1,7 +1,19 @@
 <script>
   const rootEl = typeof document !== 'undefined' ? document.documentElement : null;
   const themes = ['light', 'dark'];
+  const flavours = {
+    halloween: {
+      from: '2023-10-23',
+      to: '2023-11-07',
+    },
+    christmas: {
+      from: '2023-12-18',
+      to: '2023-12-28',
+    },
+  };
+
   let theme = ''
+  let flavour = ''
 
   if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
     theme = localStorage.getItem('theme');
@@ -9,15 +21,35 @@
     theme = 'dark';
   }
 
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('flavour')) {
+    let today = new Date();
+    flavour = Object.keys(flavours).map(f => {
+      const from = new Date(flavours[f].from)
+      const to = new Date(flavours[f].to)
+      const fits = from < today && to > today;
+      if (fits) {
+        return f;
+      } else {
+        return false;
+      }
+    }).filter(Boolean)[0].toString();
+    localStorage.setItem('flavour', flavour);
+  }
+
   function handleChange(event) {
     theme = event.target.value;
     localStorage.setItem('theme', theme);
+    localStorage.setItem('flavour', flavour);
   }
 
   $: if (rootEl && theme === 'light') {
     rootEl.classList.remove('theme-dark');
   } else if (rootEl && theme === 'dark') {
     rootEl.classList.add('theme-dark');
+  }
+
+  $: if (rootEl && localStorage !== undefined && localStorage.getItem('flavour') !== undefined) {
+    rootEl.classList.add(`flavour-${localStorage.getItem('flavour')}`);
   }
 
   const icons = [

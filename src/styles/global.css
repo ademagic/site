@@ -24,6 +24,24 @@
   --code-text: #d8dee9ff;
 }
 
+:root.flavour-halloween {
+  --background-body: #fff;
+  --background-body-alt: #fdece7;
+  --text-main: #110f0f;
+  --text-secondary: #655b5b;
+  --text-highlight: #fff;
+  --primary-color: #ff5722;
+  --primary-color-transparent: rgba(255, 87, 34, 0.2);
+}
+
+:root.theme-dark.flavour-halloween {
+  --background-body: #120c0a;
+  --background-body-alt: #251914;
+  --text-main: #f7edea;
+  --text-secondary: #ccc;
+  --text-highlight: #fff;
+}
+
 :root.theme-dark img {
   filter: brightness(0.85) saturate(0.85);
 }
