@@ -9,3 +9,15 @@ Disallow: /
 
 User-agent: Adsbot-Google
 Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
