@@ -15,25 +15,31 @@
   let theme = ''
   let flavour = ''
 
-  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-    theme = localStorage.getItem('theme');
-  } else if (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    theme = 'dark';
-  }
 
-  if (typeof localStorage !== 'undefined' && localStorage.getItem('flavour')) {
-    let today = new Date();
-    flavour = Object.keys(flavours).map(f => {
-      const from = new Date(flavours[f].from)
-      const to = new Date(flavours[f].to)
-      const fits = from < today && to > today;
-      if (fits) {
-        return f;
-      } else {
-        return false;
-      }
-    }).filter(Boolean)[0].toString();
-    localStorage.setItem('flavour', flavour);
+  if (typeof localStorage !== 'undefined') {
+    if (localStorage.getItem('theme')) {
+      theme = localStorage.getItem('theme');
+    } else if (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      theme = 'dark';
+    }
+
+    if (localStorage.getItem('flavour')) {
+      flavour = localStorage.getItem('flavour');
+    } else {
+      let today = new Date();
+      flavour = Object.keys(flavours).map(f => {
+        const from = new Date(flavours[f].from)
+        const to = new Date(flavours[f].to)
+        const fits = from < today && to > today;
+        if (fits) {
+          return f;
+        } else {
+          return false;
+        }
+      }).filter(Boolean)[0].toString();
+      console.log(today, flavour);
+      localStorage.setItem('flavour', flavour);
+    }
   }
 
   function handleChange(event) {
@@ -49,6 +55,7 @@
   }
 
   $: if (rootEl && localStorage !== undefined && localStorage.getItem('flavour') !== undefined) {
+    console.log('FLAVOUR', localStorage.getItem('flavour'));
     rootEl.classList.add(`flavour-${localStorage.getItem('flavour')}`);
   }
 
