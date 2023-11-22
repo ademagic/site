@@ -1,6 +1,7 @@
 ---
-let allReleases = await Astro.glob('../data/releases/*.md');
-const latestRelease = allReleases.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()).find(a => a.frontmatter.tags.includes('release'));
+import { getCollection } from "astro:content";
+let allReleases = await getCollection('releases');
+const latestRelease = allReleases.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf()).find(a => a.data.tags.includes('release'));
 ---
 
 <footer>
@@ -18,7 +19,7 @@ const latestRelease = allReleases.sort((a, b) => new Date(b.frontmatter.publishD
         </ul>
       </div>
       <div class="release">
-        <span>Latest Release: <a href={`/releases/${latestRelease.file.split('/').pop().split('.').shift()}`}>{latestRelease.frontmatter.title}</a></span>
+        <span>Latest Release: <a href={`/releases/${latestRelease.slug}`}>{latestRelease.data.title}</a></span>
       </div>
     </div>
     <div class="right">

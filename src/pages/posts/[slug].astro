@@ -1,11 +1,11 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 import getPostData from '../../utils/getPostData';
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob('../../data/blog-posts/*.md');
+  const posts = await getCollection('blog');
   return posts.map(p => ({
-    params: { slug: p.file.split('/').pop().split('.').shift() },
+    params: { slug: `/blog/${p.slug}` },
     props: { post: p },
   }));
 }

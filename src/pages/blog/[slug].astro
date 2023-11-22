@@ -1,11 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Bio from '../../components/Bio.astro';
 import Foreword from '../../components/Foreword.astro';
 import getPostData from '../../utils/getPostData';
 import Tag from '../../components/Tag.astro';
 import SpotifyEmbed from '../../components/SpotifyEmbed.astro';
-import getTags from '../../utils/getTags';
 
 const { Content, frontmatter } = Astro.props.post;
 const {
@@ -24,16 +24,16 @@ const {
 const { slug, readingTime } = getPostData(Astro.props.post);
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob('../../data/blog-posts/*.md');
+  let posts = await getCollection('blog');
   return posts.map(p => {
-    const coreTag = p.frontmatter.coreTag;
-    const thisPost = p.frontmatter.title;
-    const relatedPostsTag = (coreTag !== undefined) ? coreTag : p.frontmatter.tags[0];
+    const coreTag = p.data.coreTag;
+    const thisPost = p.data.title;
+    const relatedPostsTag = (coreTag !== undefined) ? coreTag : p.data.tags[0];
     return ({
-      params: { slug: p.file.split('/').pop().split('.').shift() },
+      params: { slug: `/blog/${p.slug}` },
       props: {
         post: p,
-        relatedPosts:  posts.filter(post => (post.frontmatter.tags.includes(relatedPostsTag) && post.frontmatter.title !== thisPost))
+        relatedPosts:  posts.filter(post => (post.data.tags.includes(relatedPostsTag) && post.data.title !== thisPost))
        },
     }
   )});

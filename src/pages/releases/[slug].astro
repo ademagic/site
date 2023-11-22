@@ -1,13 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Bio from '../../components/Bio.astro';
 import SpotifyEmbed from '../../components/SpotifyEmbed.astro';
 import getPostData from '../../utils/getPostData';
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob('../../data/releases/*.md');
+  const posts = await getCollection('releases');
   return posts.map(p => ({
-    params: { slug: p.file.split('/').pop().split('.').shift() },
+    params: { slug: `/releases/${p.slug}` },
     props: { post: p },
   }));
 }

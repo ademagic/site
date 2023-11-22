@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogCard from '../../components/BlogCard.astro';
 
@@ -8,10 +9,10 @@ const title = 'Blog Archive';
 const description = 'Tech can age very quickly. Any post over 2 years old is taken off the blog page and retires here for your nostalgic reading enjoyment.';
 const permalink = `${Astro.site.href}blog/archive`;
 
-let allPosts = await Astro.glob('../../data/blog-posts/*.md');
-allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
+let allPosts = await getCollection('blog');
+allPosts = allPosts.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf());
 const archivedPosts = allPosts.map((post) => {
-  if (diffMonth(new Date(post.frontmatter.publishDate), new Date()) > 24) {
+  if (diffMonth(new Date(post.data.publishDate), new Date()) > 24) {
     return post;
   }
 }).filter(e => e !== undefined);
@@ -27,16 +28,16 @@ const archivedPosts = allPosts.map((post) => {
     <div class="grid">
       {archivedPosts.map((post) => {
         const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
-        if (post.frontmatter.tags.includes('release')) return false;
-        const postImage = (post.frontmatter.socialImage !== undefined) ? post.frontmatter.socialImage : 'assets/social.jpg';
-        const socialImageAlt = (post.frontmatter.socialImageAlt !== undefined) ? post.frontmatter.socialImageAlt : `alt text is missing for ${post.frontmatter.title} social image. Please let me know.`;
+        if (post.data.tags.includes('release')) return false;
+        const postImage = (post.data.socialImage !== undefined) ? post.data.socialImage : 'assets/social.jpg';
+        const socialImageAlt = (post.data.socialImageAlt !== undefined) ? post.data.socialImageAlt : `alt text is missing for ${post.data.title} social image. Please let me know.`;
 
         return (
           <BlogCard
             href={href}
-            title={post.frontmatter.title}
-            description={post.frontmatter.description}
-            publishDate={`${post.frontmatter.publishDate} (${diffYear(new Date(post.frontmatter.publishDate), new Date())} years old)`}
+            title={post.data.title}
+            description={post.data.description}
+            publishDate={`${post.data.publishDate} (${diffYear(new Date(post.data.publishDate), new Date())} years old)`}
           >
             <img class="post-image" slot="postImage" src={`/${postImage}`} alt={socialImageAlt} />
           </BlogCard>

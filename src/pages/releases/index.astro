@@ -1,15 +1,15 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = 'Releases';
 const description = 'A somewhat curated written history of this website.';
 const permalink = `${Astro.site.href}releases`;
 
-let allReleases = await Astro.glob('../../data/releases/*.md');
-// allReleases = allReleases
-//   .sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
+let allReleases = await getCollection('releases');
+
 const releasesByYear = allReleases.reduce((group, release) => {
-  const year = new Date(release.frontmatter.publishDate).getFullYear();
+  const year = new Date(release.data.publishDate).getFullYear();
   group[year] = group[year] ?? [];
   group[year].push(release);
   return group;
