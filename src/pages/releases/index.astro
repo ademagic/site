@@ -31,12 +31,12 @@ const allYears = Object.keys(releasesByYear);
             <ul>
               {
                 releasesByYear[year]
-                  .sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf())
-                  .map((post, index) => {
-                    const href = `/releases/${post.file.split('/').pop().split('.').shift()}`;
+                  .sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf())
+                  .map((post) => {
+                    const href = `/releases/${post.slug}`;
                     return (
                       <li>
-                        <p><a href={href}>{post.frontmatter.title}</a>: {post.frontmatter.description}</p>
+                        <p><a href={href}>{post.data.title}</a>: {post.data.description}</p>
                       </li>
                     )
                   })
