@@ -5,12 +5,15 @@ import getPostData from '../../utils/getPostData';
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map(p => ({
-    params: { slug: `/blog/${p.slug}` },
+    params: { slug: p.slug },
     props: { post: p },
   }));
 }
 
-const { slug } = getPostData(Astro.props.post);
+const post = Astro.props.post;
+const { title } = post.data;
+
+const { slug } = getPostData({title, slug: post.slug, body: post.body});
 const permalink = `${Astro.site.href}blog/${slug}`;
 ---
 
