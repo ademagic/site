@@ -30,7 +30,7 @@ const permalink = `${Astro.site.href}tags/${slug}`;
       <p>{postList.length} posts tagged with <Tag text={slug} /></p>
       <p><a href="/tags">&lt; Back to Tags</a></p>
       {postList.map((post, index) => {
-        const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
+        const href = `/blog/${post.slug}`;
         return (
           <div>
             { index !== 0 && <hr /> }
