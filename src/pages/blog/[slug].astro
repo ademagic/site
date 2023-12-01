@@ -7,7 +7,8 @@ import getPostData from '../../utils/getPostData';
 import Tag from '../../components/Tag.astro';
 import SpotifyEmbed from '../../components/SpotifyEmbed.astro';
 
-const { Content, frontmatter } = Astro.props.post;
+const post = Astro.props.post;
+
 const {
   title,
   description,
@@ -20,8 +21,13 @@ const {
   socialImageAlt,
   socialImageAttribution,
   soundtrack 
-} = frontmatter;
-const { slug, readingTime } = getPostData(Astro.props.post);
+} = post.data;
+
+const { slug, readingTime } = getPostData({
+  title,
+  slug: post.slug,
+  body: post.body,
+});
 
 export async function getStaticPaths() {
   let posts = await getCollection('blog');
@@ -30,7 +36,7 @@ export async function getStaticPaths() {
     const thisPost = p.data.title;
     const relatedPostsTag = (coreTag !== undefined) ? coreTag : p.data.tags[0];
     return ({
-      params: { slug: `/blog/${p.slug}` },
+      params: { slug: p.slug },
       props: {
         post: p,
         relatedPosts:  posts.filter(post => (post.data.tags.includes(relatedPostsTag) && post.data.title !== thisPost))
@@ -41,6 +47,8 @@ export async function getStaticPaths() {
 
 const permalink = `${Astro.site.href}/blog/${slug}`;
 const relatedPosts = Astro.props.relatedPosts.slice(0, 3);
+
+const {Content} = await post.render();
 
 ---
 
@@ -87,7 +95,7 @@ const relatedPosts = Astro.props.relatedPosts.slice(0, 3);
             relatedPosts.map(p => (
               <li>
                 <p>
-                  <a href={`/blog/${p.file.split('/').pop().split('.').shift()}`}>{p.frontmatter.title}</a>
+                  <a href={`/blog/${p.slug}`}>{p.data.title}</a>
                 </p>
               </li>
             ))
