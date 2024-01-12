@@ -4,18 +4,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import getTags from '../../utils/getTags';
 import Tag from '../../components/Tag.astro'
 
-const title = 'Tags';
-const description = 'A list of tags associated with my blogposts to help you browse them better.';
-const permalink = `${Astro.site.href}tags`;
 
 let allPosts = await getCollection('blog');
 
-let {tagCount: tags} = getTags(allPosts.map(a => ({tags: a.data.tags})));
+let {tagCount: tags, total} = getTags(allPosts.map(a => ({tags: a.data.tags})));
 
 const sortedTags = Object.fromEntries(
     Object.entries(tags).sort(([,va],[,vb]) => vb - va)
 );
 
+const title = 'Tags';
+const description = `So far I've written ${total} blog posts. I've organised them by tag to make them easier to browse.`;
+const permalink = `${Astro.site.href}tags`;
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="blog">
@@ -31,6 +31,7 @@ const sortedTags = Object.fromEntries(
         ))
       }
     </ul>
+    <p><a href="/blog">← Back to the blog</a></p>
   </div>
 </BaseLayout>
 
