@@ -47,7 +47,6 @@ export async function getStaticPaths() {
 
 const permalink = `${Astro.site.href}/blog/${slug}`;
 const relatedPosts = Astro.props.relatedPosts.slice(0, 3);
-
 const {Content} = await post.render();
 
 ---

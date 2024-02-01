@@ -5,9 +5,8 @@ publishDate: 1 Feb 2024
 description: My experience on the platform "Where developers suffer together".
 soundtrack: playlist/1WKpZKvjVoIw1kt3ZqOut7
 socialImage: assets/blog/on-daily-dev/hero.png
-relatedPostsTag: daily-dev  
 tags:
-  - reading
+  - reading-list
   - site
   - thoughts
   - tech
