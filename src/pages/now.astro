@@ -6,9 +6,9 @@ const title = 'Now';
 const description = 'What I am focusing on at this point in my life. Based on nownownow.com';
 const permalink = `${Astro.site.href}now`;
 
-const response = await fetch(`${import.meta.env.PUBLIC_API_LASTFM}/?method=user.getrecenttracks&user=mikoa&api_key=${import.meta.env.KEY_LASTFM}&format=json&limit=1&extended=1`);
-const data = await response.json();
-const track = data.recenttracks.track[0];
+// const response = await fetch(`${import.meta.env.PUBLIC_API_LASTFM}/?method=user.getrecenttracks&user=mikoa&api_key=${import.meta.env.KEY_LASTFM}&format=json&limit=1&extended=1`);
+// const data = await response.json();
+// const track = data.recenttracks.track[0];
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
@@ -21,8 +21,8 @@ const track = data.recenttracks.track[0];
       <div class="right">
         <Card>
           <ul class="nowlist">
-            {track && <li>🎧:<a href={track.url}>{track.artist?.name} - {track.name}</a></li>}
-            <li>📚: <a href="/blog/chipping-away-at-my-reading-list">189 <span class="plus">+3</span> <span class="minus">-0</span></a></li>
+            <!-- {track && <li>🎧:<a href={track.url}>{track.artist?.name} - {track.name}</a></li>} -->
+            <li>📚: <a href="/blog/chipping-away-at-my-reading-list">192 <span class="plus">+4</span> <span class="minus">-1</span></a></li>
             <li>📖: <a href="https://amzn.asia/d/9Vyk7r2">Engineering Management for the Rest of Us - Sarah Drasner</a></li>
             <li>🎸: <a href="https://open.spotify.com/track/2Mr7sMG4UAPK7q18m05pjM?si=f21b08d3a45e4d92">Francisco Tarrega - Gran Vals</a></li>
           </ul>
@@ -30,12 +30,11 @@ const track = data.recenttracks.track[0];
       </div>
     </div>
     <hr/>
-    <h2>February</h2>
-    <span class="date">01/02/24</span>
+    <h2>March</h2>
+    <span class="date">01/03/24</span>
     <ul>
-      <li>And the year comes off to a crawling start.</li>
-      <li>Slowly working on my redesign. Hope to start rolling stuff out soon; I started way too late for a "new year new me" design.</li>
-      <li>Planning a trip to Japan woohoo!</li>
+      <li>Really gotta fix my Now page.</li>
+      <li>Preparing for our trip.</li>
     </ul>
   </div>
 </BaseLayout>
