@@ -22,19 +22,18 @@ const track = data.recenttracks.track[0];
         <Card>
           <ul class="nowlist">
             {track && <li>🎧:<a href={track.url}>{track.artist?.name} - {track.name}</a></li>}
-            <li>📚: <a href="/blog/chipping-away-at-my-reading-list">192 <span class="plus">+4</span> <span class="minus">-1</span></a></li>
-            <li>📖: <a href="https://amzn.asia/d/9Vyk7r2">Engineering Management for the Rest of Us - Sarah Drasner</a></li>
+            <li>📚: <a href="/blog/chipping-away-at-my-reading-list">197 <span class="sml plus">+5</span> <span class="sml minus">-0</span></a></li>
+            <li>📖: <a href="https://amzn.asia/d/9Vyk7r2">Engineering Management for the Rest of Us - Sarah Drasner <span class="sml">10%</span></a></li>
             <li>🎸: <a href="https://open.spotify.com/track/2Mr7sMG4UAPK7q18m05pjM?si=f21b08d3a45e4d92">Francisco Tarrega - Gran Vals</a></li>
           </ul>
         </Card>
       </div>
     </div>
     <hr/>
-    <h2>March</h2>
-    <span class="date">01/03/24</span>
+    <h2>April</h2>
+    <span class="date">05/04/24</span>
     <ul>
-      <li>Really gotta fix my Now page.</li>
-      <li>Preparing for our trip.</li>
+      <li>Japan was a raging success, even with the little'un. Can't wait to go back.</li>
     </ul>
   </div>
 </BaseLayout>
@@ -58,8 +57,7 @@ const track = data.recenttracks.track[0];
     list-style: none;
   }
 
-  .plus,
-  .minus {
+  .sml {
     font-size: 1rem;
   }
 
