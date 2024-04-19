@@ -89,23 +89,13 @@ const popTagList = currentPosts.map(post => { if (post.data.tags.includes(popTag
     </div>
 
     <h2>Blogposts</h2>
-    <ul>
-      {currentPosts.map((post, index) => {
+      {currentPosts.map((post) => {
         const href = `/blog/${post.slug}`;
 
         return (
-          <div>
-            <div class="post-item">
-              <h3>
-                <a href={href}>{post.data.title}</a>
-              </h3>
-              <p>{post.data.description}<br/><em>{post.data.publishDate}</em></p>
-            </div>
-          </div>
+          <p class="blogpost">{post.data.publishDate}: <a href={href}>{post.data.title}</a></p>
         )
       })}
-    </ul>
-
     <p>If you'd like to read my older posts, you can <a href="/blog/archive">browse the archive ⟶</a></p>
   </div>
 </BaseLayout>
@@ -153,6 +143,11 @@ const popTagList = currentPosts.map(post => { if (post.data.tags.includes(popTag
   h2 {
     margin-bottom: 1.2em;
   }
+
+  .blogpost {
+    margin: 0.2em 0;
+  }
+
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
