@@ -14,17 +14,21 @@ const permalink = `${Astro.site.href}blog`;
 let allPosts = await getCollection('blog');
 
 allPosts = allPosts.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf());
+
 let {tagCount: tags} = getTags(allPosts.map(a => ({tags: a.data.tags})));
-const currentYear = new Date().getFullYear();
+
+const sortedTags = Object.entries(tags).sort(([,va],[,vb]) => vb - va).slice(0,7).map(st => ({name: st[0], count: st[1]}));
+
 const currentPosts = allPosts.map((post) => {
-  if (diffMonth(new Date(post.data.publishDate), new Date()) < 24) {
+  if ((diffMonth(new Date(post.data.publishDate), new Date()) < 24) && !(post.data.tags.includes('release'))) {
     return post;
   }
 }).filter(e => e !== undefined);
 
-const sortedTags = Object.fromEntries(
-    Object.entries(tags).sort(([,va],[,vb]) => vb - va)
-);
+const latestPosts = currentPosts.slice(0,3);
+
+const popTag = sortedTags[0].name;
+const popTagList = currentPosts.map(post => { if (post.data.tags.includes(popTag)) {return post}}).filter(e => e!== undefined).slice(0,3);
 
 ---
 
@@ -36,16 +40,17 @@ const sortedTags = Object.fromEntries(
       <h3>Top tags</h3>
       <ul>
         {
-          Object.entries(sortedTags).slice(0,7).map(([tag,]) => <li><Tag text={tag} link={`/tags/${tag}`} /></li>)
+          sortedTags.map(tag => <li><Tag text={tag.name} link={`/tags/${tag.name}`} /></li>)
         }
         <li>
           <a href="/tags">Browse by tags ⟶</a>
         </li>
       </ul>
     </div>
+    
+    <h2>Latest Posts</h2>
     <div class="grid">
-      {currentPosts.map((post) => {
-        if (post.data.tags.includes('release')) return false;
+      {latestPosts.map((post) => {
         const href = `/blog/${post.slug}`;
         const postImage = (post.data.socialImage !== undefined) ? post.data.socialImage : 'assets/social.jpg';
         const socialImageAlt = (post.data.socialImageAlt !== undefined) ? post.data.socialImageAlt : `alt text is missing for ${post.data.title} social image. Please let me know.`;
@@ -62,6 +67,45 @@ const sortedTags = Object.fromEntries(
         )
       })}
     </div>
+
+    <h2>I mostly write about <a href={`/tags/${popTag}`}>{popTag}</a></h2>
+    <div class="grid">
+      {popTagList.map((post) => {
+        const href = `/blog/${post.slug}`;
+        const postImage = (post.data.socialImage !== undefined) ? post.data.socialImage : 'assets/social.jpg';
+        const socialImageAlt = (post.data.socialImageAlt !== undefined) ? post.data.socialImageAlt : `alt text is missing for ${post.data.title} social image. Please let me know.`;
+
+        return (
+          <BlogCard
+            href={href}
+            title={post.data.title}
+            description={post.data.description}
+            publishDate={post.data.publishDate}
+          >
+            <img class="post-image" slot="postImage" src={`/${postImage}`} alt={socialImageAlt} />
+          </BlogCard>
+        )
+      })}
+    </div>
+
+    <h2>Blogposts</h2>
+    <ul>
+      {currentPosts.map((post, index) => {
+        const href = `/blog/${post.slug}`;
+
+        return (
+          <div>
+            <div class="post-item">
+              <h3>
+                <a href={href}>{post.data.title}</a>
+              </h3>
+              <p>{post.data.description}<br/><em>{post.data.publishDate}</em></p>
+            </div>
+          </div>
+        )
+      })}
+    </ul>
+
     <p>If you'd like to read my older posts, you can <a href="/blog/archive">browse the archive ⟶</a></p>
   </div>
 </BaseLayout>
@@ -80,6 +124,10 @@ const sortedTags = Object.fromEntries(
   }
 
   .tag-list {
+    margin-bottom: 1.2rem;
+  }
+
+  .tag-list > h3 {
     margin-bottom: 1.2rem;
   }
 
