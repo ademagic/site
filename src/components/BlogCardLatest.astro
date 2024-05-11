@@ -3,11 +3,8 @@ const { postImage, href, title, description, publishDate  } = Astro.props;
 ---
 
 <aside>
-  <figure class="post-image-container">
-    <div class="post-image"><slot name="postImage" /></div>
-  </figure>
   <div class="post-item">
-    <h3>
+    <h3 class="post-item-title">
       <a href={href}>{title}</a>
     </h3>
     <p>{description}</p>
@@ -17,6 +14,9 @@ const { postImage, href, title, description, publishDate  } = Astro.props;
     </div>
     <slot />
   </div>
+  <figure class="post-image-container">
+    <div class="post-image"><slot name="postImage" /></div>
+  </figure>
 </aside>
 
 <style>
@@ -24,7 +24,7 @@ const { postImage, href, title, description, publishDate  } = Astro.props;
     border: 1px solid var(--primary-color);
     box-shadow: -5px 5px 0 var(--primary-color-transparent);
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1.6fr;
   }
 
   .post-image-container {
@@ -32,16 +32,19 @@ const { postImage, href, title, description, publishDate  } = Astro.props;
     position: relative;
     margin-bottom: 0 !important;
   }
-  
-  .post-image > img {
-    display: block;
-    height: 12em;
+
+  .post-image {
     width: 100%;
+    height: 18em;
     object-fit: cover;
+    display: block;
   }
 
   .post-item {
     padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 
   .post-item-footer {
@@ -57,13 +60,17 @@ const { postImage, href, title, description, publishDate  } = Astro.props;
     margin-right: 16px;
   }
 
-  h3 {
+  .post-item-title {
     margin-top: 0;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
   }
 
   p {
     font-size: 1rem;
+  }
+
+  @media (min-width: 600px) {
+    
   }
 </style>
   

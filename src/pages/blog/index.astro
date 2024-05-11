@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Tag from '../../components/Tag.astro';
 import BlogCard from '../../components/BlogCard.astro';
+import BlogCardLatest from '../../components/BlogCardLatest.astro';
 
 import getTags from '../../utils/getTags';
 import {diffMonth} from '../../utils/dateDiff';
@@ -25,7 +26,7 @@ const currentPosts = allPosts.map((post) => {
   }
 }).filter(e => e !== undefined);
 
-const latestPosts = currentPosts.slice(0,3);
+const latestPost = currentPosts[0];
 
 const popTag = sortedTags[0].name;
 const popTagList = currentPosts.map(post => { if (post.data.tags.includes(popTag)) {return post}}).filter(e => e!== undefined).slice(0,3);
@@ -49,23 +50,23 @@ const popTagList = currentPosts.map(post => { if (post.data.tags.includes(popTag
     </div>
     
     <h2>Latest Posts</h2>
-    <div class="grid">
-      {latestPosts.map((post) => {
+    <div class="latest">
+      {(post = latestPost) => {
         const href = `/blog/${post.slug}`;
         const postImage = (post.data.socialImage !== undefined) ? post.data.socialImage : 'assets/social.jpg';
         const socialImageAlt = (post.data.socialImageAlt !== undefined) ? post.data.socialImageAlt : `alt text is missing for ${post.data.title} social image. Please let me know.`;
 
         return (
-          <BlogCard
+          <BlogCardLatest
             href={href}
             title={post.data.title}
             description={post.data.description}
             publishDate={post.data.publishDate}
           >
             <img class="post-image" slot="postImage" src={`/${postImage}`} alt={socialImageAlt} />
-          </BlogCard>
+          </BlogCardLatest>
         )
-      })}
+      }}
     </div>
 
     <h2>I mostly write about <a href={`/tags/${popTag}`}>{popTag}</a></h2>
