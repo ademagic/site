@@ -9,6 +9,10 @@ const permalink = `${Astro.site.href}now`;
 const response = await fetch(`http://ws.audioscrobbler.com/2.0?method=user.getrecenttracks&user=mikoa&api_key=af6e017e437cc163f02c30b67ef7caa9&format=json&limit=1&extended=1`);
 const data = await response.json();
 const track = data.recenttracks.track[0];
+
+const readingCount = 218
+const plusReadingCount = 9
+const minusReadingCount = 0
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
@@ -22,20 +26,20 @@ const track = data.recenttracks.track[0];
         <Card>
           <ul class="nowlist">
             {track && <li>🎧:<a href={track.url}>{track.artist?.name} - {track.name}</a></li>}
-            <li>📚: <a href="/blog/chipping-away-at-my-reading-list">209 <span class="sml plus">+8</span> <span class="sml minus">-0</span></a></li>
-            <li>📖: <a href="https://amzn.asia/d/9Vyk7r2">Engineering Management for the Rest of Us - Sarah Drasner <span class="sml">15%</span></a></li>
+            <li>📚: <a href="/blog/chipping-away-at-my-reading-list">{readingCount} <span class="sml plus">+{plusReadingCount}</span> <span class="sml minus">-{minusReadingCount}</span></a></li>
+            <li>📖: <a href="https://amzn.asia/d/9Vyk7r2">Engineering Management for the Rest of Us - Sarah Drasner <span class="sml">22%</span></a></li>
             <li>🎸: <a href="https://open.spotify.com/track/2Mr7sMG4UAPK7q18m05pjM?si=f21b08d3a45e4d92">Francisco Tarrega - Gran Vals</a></li>
           </ul>
         </Card>
       </div>
     </div>
     <hr/>
-    <h2>April</h2>
-    <span class="date">19/04/24</span>
+    <h2>May</h2>
+    <span class="date">31/05/24</span>
     <ul>
-      <li>My reading list is getting out of hand. Upside, my <a href="/blog/on-daily-dev">activity on daily.dev</a> is through the roof</li>
-      <li>Japan was a raging success, even with the little'un. Can't wait to go back.</li>
-      <li>Finally fixed my motorbike. Hoping the rains will take it easy over the next few weeks!</li>
+      <li>You know winter's here when you and your kid share back-to-back illnesses.</li>
+      <li>The blog page is getting a facelift, and I'm generally finding more cool things to put on my website. Really want to spend more time on it.</li>
+      <li>Starting some Microsoft Azure certifications next month.</li>
     </ul>
   </div>
 </BaseLayout>
