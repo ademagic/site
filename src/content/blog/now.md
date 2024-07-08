@@ -3,7 +3,7 @@ title: Now Now Now, Now.
 metaTitle: Now Now Now, Now.
 publishDate: 5 Jul 2024
 description: What is a Now page, why I got one, and why you need one.
-soundtrack: track/1N50xgnXfKD2DRrUnabU6j
+soundtrack: track/76JiqapIERQn7FVnKqlu5o
 socialImage: assets/blog/now/now.jpg
 socialImageAttribution: {
   author: Zachary Keimig,
