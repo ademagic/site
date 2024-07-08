@@ -10,9 +10,9 @@ const response = await fetch(`http://ws.audioscrobbler.com/2.0?method=user.getre
 const data = await response.json();
 const track = data.recenttracks.track[0];
 
-const readingCount = 218
-const plusReadingCount = 9
-const minusReadingCount = 0
+const readingCount = 213
+const plusReadingCount = 1
+const minusReadingCount = 7
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
@@ -34,12 +34,12 @@ const minusReadingCount = 0
       </div>
     </div>
     <hr/>
-    <h2>May</h2>
-    <span class="date">31/05/24</span>
+    <h2>July</h2>
+    <span class="date">08/07/24</span>
     <ul>
-      <li>You know winter's here when you and your kid share back-to-back illnesses.</li>
-      <li>The blog page is getting a facelift, and I'm generally finding more cool things to put on my website. Really want to spend more time on it.</li>
-      <li>Starting some Microsoft Azure certifications next month.</li>
+      <li>Officially a Development Manager, as of last month :)</li>
+      <li>One month since going back to the gym. Definitely noticing the strength coming back.</li>
+      <li>Enjoying the Euros. Not enjoying the stupid time difference.</li>
     </ul>
   </div>
 </BaseLayout>
