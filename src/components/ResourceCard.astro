@@ -1,0 +1,77 @@
+---
+const { image, url, title, description, dateAdded  } = Astro.props;
+const hasImage = !(image === undefined);
+const socialImg = hasImage ? image : '/assets/social.jpg'
+---
+
+<aside>
+  <figure class="image-container">
+    <div class="image">
+      {
+        hasImage ?
+          <slot name="image" /> :
+          <img src=`${socialImg}` alt=`no preview found for ${title}` />
+      }
+    </div>
+  </figure>
+  <div class="item">
+    <h3>
+      <a href={url}>{title}</a>
+    </h3>
+    <p>{description}</p>
+    <div class="item-footer">
+      <span class="item-date">Added {dateAdded}</span>
+      <span class="item-read"><a href={url} target="_blank" rel="noopener nofollow">Go to {title} ⟶</a></span>
+    </div>
+    <slot />
+  </div>
+</aside>
+
+<style>
+  aside {
+    border: 1px solid var(--primary-color);
+    box-shadow: -5px 5px 0 var(--primary-color-transparent);
+    display: grid;
+    grid-template-rows: 0.8fr 1fr;
+  }
+
+  .image-container {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 0 !important;
+  }
+  
+  .image > img {
+    display: block;
+    height: 12em;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .item {
+    padding: 2rem 1.5rem;
+  }
+
+  .item-footer {
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+
+  .item-date {
+    color: var(--text-secondary);
+    text-align: left;
+    text-transform: uppercase;
+    margin-right: 16px;
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+</style>
+  

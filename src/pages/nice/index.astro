@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import ResourceCard from '../../components/ResourceCard.astro';
+
+const title = "Nice Websites";
+const description =
+  "A collection of websites I just find nice, for various reasons.";
+const permalink = `${Astro.site.href}nice`;
+
+const sites = await getCollection('nice');
+// use fisher-yates to shuffle array contents.
+const shuffleArray = (array) => {
+		const shuffled: any[] = array;
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+		return shuffled;
+}
+const siteList = shuffleArray(sites);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  permalink={permalink}
+  current="nice"
+>
+	<div class="container wide">
+		<h1>Nice Sites</h1>
+		<p>A collection of websites I like, frequent, and draw inspiration from.</p>
+		<div class="grid">
+      {siteList.map((site) => {
+        return (
+          <ResourceCard
+            url={site.data.url}
+            title={site.data.title}
+            description={site.data.description}
+            dateAdded={site.data.dateAdded}
+          />
+        )
+      })}
+    </div>
+	</div>
+</BaseLayout>
+
+<style>
+	.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1.2rem;
+    row-gap: 1.2rem;
+  }
+</style>
