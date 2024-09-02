@@ -18,9 +18,9 @@ const socialImg = hasImage ? image : '/assets/social.jpg'
     <h3>
       <a href={url}>{title}</a>
     </h3>
+    <span class="item-date">Added {dateAdded}</span>
     <p>{description}</p>
     <div class="item-footer">
-      <span class="item-date">Added {dateAdded}</span>
       <span class="item-read"><a href={url} target="_blank" rel="noopener nofollow">Go to site ⟶</a></span>
     </div>
     <slot />
@@ -31,8 +31,6 @@ const socialImg = hasImage ? image : '/assets/social.jpg'
   aside {
     border: 1px solid var(--primary-color);
     box-shadow: -5px 5px 0 var(--primary-color-transparent);
-    display: grid;
-    grid-template-rows: 0.8fr 1fr;
   }
 
   .image-container {
@@ -59,6 +57,9 @@ const socialImg = hasImage ? image : '/assets/social.jpg'
   }
 
   .item-date {
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-size: 0.8rem;
     color: var(--text-secondary);
     text-align: left;
     text-transform: uppercase;
