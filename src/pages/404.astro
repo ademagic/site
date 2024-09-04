@@ -3,10 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = '404 Page Not Found';
 const description = 'Oops.';
-const permalink = `${Astro.site.href}about`;
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="about">
+<BaseLayout title={title} description={description}>
   <div class="container">
     <h1>Oops!</h1>
     <p>404 Page Not Found</p>
