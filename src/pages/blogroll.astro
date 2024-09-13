@@ -25,7 +25,7 @@ const unroll = (category: string) => {
 }
 
 const blogs = unroll('blogs');
-const friends = unroll('friends');
+const local = unroll('friends');
 const other = unroll('other');
 const sources = unroll('sources');
 ---
@@ -34,15 +34,15 @@ const sources = unroll('sources');
   <div class="container">
     <h1>Blogroll</h1>
     <p>Here's <a href="/blog/blogroll">a list of blogs I frequent or find interesting</a>. Curated by me.</p>
-    <p>If you want to be on this list, please <a href="/contact">reach out</a>.</a></p>
+    <p>If you want to be on this list (or see something that needs changing), please <a href="/contact">reach out</a>.</a></p>
     {
-        friends &&
+        local &&
         <div>
-            <h2>Friends</h2>
-            <p>These blogs belong to people I know well or have worked with.</p>
+            <h2>Local</h2>
+            <p>These blogs belong to people I have met in person, have worked with, or am friends with. Sometimes all of those.</p>
             <ul>
                 {
-                    friends.map(li => {
+                    local.map(li => {
                         if (li === undefined) return;
                         return (<li><BlogRollItem data={li.data}/></li>)
                     })
@@ -59,13 +59,7 @@ const sources = unroll('sources');
                 {
                     blogs.map(li => {
                         if (li === undefined) return;
-                        const {
-                            url,
-                            title,
-                            rss,
-                        } = li?.data;
-
-                        return (<li><a href={url}>{title}</a></li>)
+                        return (<li><BlogRollItem data={li.data}/></li>)
                     })
                 }
             </ul>
@@ -80,13 +74,7 @@ const sources = unroll('sources');
                 {
                     other.map(li => {
                         if (li === undefined) return;
-                        const {
-                            url,
-                            title,
-                            rss,
-                        } = li?.data;
-
-                        return (<li><a href={url}>{title}</a></li>)
+                        return (<li><BlogRollItem data={li.data}/></li>)
                     })
                 }
             </ul>
@@ -101,13 +89,7 @@ const sources = unroll('sources');
                 {
                     sources.map(li => {
                         if (li === undefined) return;
-                        const {
-                            url,
-                            title,
-                            rss,
-                        } = li?.data;
-
-                        return (<li><a href={url}>{title}</a></li>)
+                        return (<li><BlogRollItem data={li.data}/></li>)
                     })
                 }
             </ul>
