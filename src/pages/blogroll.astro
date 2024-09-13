@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogRollItem from '../components/BlogRollItem.astro';
 
 const title = 'Blogroll';
 const description = 'A list of blogs and websites I frequent or find interesting';
@@ -43,13 +44,7 @@ const sources = unroll('sources');
                 {
                     friends.map(li => {
                         if (li === undefined) return;
-                        const {
-                            url,
-                            title,
-                            rss,
-                        } = li?.data;
-
-                        return (<li><a href={url}>{title}</a></li>)
+                        return (<li><BlogRollItem data={li.data}/></li>)
                     })
                 }
             </ul>
