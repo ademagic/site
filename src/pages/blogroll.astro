@@ -1,0 +1,122 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Blogroll';
+const description = 'A list of blogs and websites I frequent or find interesting';
+const permalink = `${Astro.site.href}blogroll`;
+
+const roll = await getCollection('blogroll');
+
+const unroll = (category: string) => {
+    const output = roll.map(r => {
+        const path: string[] = r.id.split('/')
+        if (path[0] === category) {
+            return r;
+        }
+    });
+
+    if (output.length === 0 || output === undefined ) {
+        return false;
+    }
+
+    return output;
+}
+
+const blogs = unroll('blogs');
+const friends = unroll('friends');
+const other = unroll('other');
+const sources = unroll('sources');
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} current="contact">
+  <div class="container">
+    <h1>Blogroll</h1>
+    <p>Here's <a href="/blog/blogroll">a list of blogs I frequent or find interesting</a>. Curated by me.</p>
+    <p>If you want to be on this list, please <a href="/contact">reach out</a>.</a></p>
+    {
+        friends &&
+        <div>
+            <h2>Friends</h2>
+            <p>These blogs belong to people I know well or have worked with.</p>
+            <ul>
+                {
+                    friends.map(li => {
+                        if (li === undefined) return;
+                        const {
+                            url,
+                            title,
+                            rss,
+                        } = li?.data;
+
+                        return (<li><a href={url}>{title}</a></li>)
+                    })
+                }
+            </ul>
+        </div>
+    }
+    {
+        blogs && 
+        <div>
+            <h2>Subscribed or frequented</h2>
+            <p>I either subscribe to their newsletter, RSS feed, or will regularly visit this website.</p>
+            <ul>
+                {
+                    blogs.map(li => {
+                        if (li === undefined) return;
+                        const {
+                            url,
+                            title,
+                            rss,
+                        } = li?.data;
+
+                        return (<li><a href={url}>{title}</a></li>)
+                    })
+                }
+            </ul>
+        </div>
+    }
+    {
+        other && 
+        <div>
+            <h2>Other nice blogs</h2>
+            <p>Here are a bunch of other blogs that I've come across and enjoyed.</p>
+            <ul>
+                {
+                    other.map(li => {
+                        if (li === undefined) return;
+                        const {
+                            url,
+                            title,
+                            rss,
+                        } = li?.data;
+
+                        return (<li><a href={url}>{title}</a></li>)
+                    })
+                }
+            </ul>
+        </div>
+    }
+    {
+        sources && 
+        <div>
+            <h2>Sources</h2>
+            <p>These are websites where I find the stuff that goes in this blogroll.</p>
+            <ul>
+                {
+                    sources.map(li => {
+                        if (li === undefined) return;
+                        const {
+                            url,
+                            title,
+                            rss,
+                        } = li?.data;
+
+                        return (<li><a href={url}>{title}</a></li>)
+                    })
+                }
+            </ul>
+        </div>
+    }
+</div>
+</BaseLayout>
