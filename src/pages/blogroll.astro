@@ -5,7 +5,7 @@ import BlogRollItem from '../components/BlogRollItem.astro';
 
 const title = 'Blogroll';
 const description = 'A list of blogs and websites I frequent or find interesting';
-const permalink = `${Astro.site.href}blogroll`;
+const permalink = `${Astro?.site?.href}blogroll`;
 
 const roll = await getCollection('blogroll');
 
