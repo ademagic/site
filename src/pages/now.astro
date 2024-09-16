@@ -4,14 +4,14 @@ import Card from '../components/Card.astro';
 
 const title = 'Now';
 const description = 'What I am focusing on at this point in my life. Based on nownownow.com';
-const permalink = `${Astro.site.href}now`;
+const permalink = `${Astro?.site?.href}now`;
 
 const response = await fetch(`http://ws.audioscrobbler.com/2.0?method=user.getrecenttracks&user=mikoa&api_key=af6e017e437cc163f02c30b67ef7caa9&format=json&limit=1&extended=1`);
 const data = await response.json();
 const track = data.recenttracks.track[0];
 
-const readingCount = 235
-const plusReadingCount = 20
+const readingCount = 239
+const plusReadingCount = 6
 const minusReadingCount = 2
 ---
 
@@ -35,7 +35,7 @@ const minusReadingCount = 2
     </div>
     <hr/>
     <h2>September</h2>
-    <span class="date">02/09/24</span>
+    <span class="date">16/09/24</span>
     <ul>
       <li>Spring has sprung</li>
     </ul>
