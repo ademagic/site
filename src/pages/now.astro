@@ -10,9 +10,9 @@ const response = await fetch(`http://ws.audioscrobbler.com/2.0?method=user.getre
 const data = await response.json();
 const track = data.recenttracks.track[0];
 
-const readingCount = 239
+const readingCount = 244
 const plusReadingCount = 6
-const minusReadingCount = 2
+const minusReadingCount = 1
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>

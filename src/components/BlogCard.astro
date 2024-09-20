@@ -1,11 +1,14 @@
 ---
-const { postImage, href, title, description, publishDate } = Astro.props;
+const { noImage=false, href, title, description, publishDate } = Astro.props;
 ---
 
 <aside>
-  <figure class="post-image-container">
-    <div class="post-image"><slot name="postImage" /></div>
-  </figure>
+  {
+    !noImage && 
+    <figure class="post-image-container">
+      <div class="post-image"><slot name="postImage" /></div>
+    </figure>
+  }
   <div class="post-item">
     <h3>
       <a href={href}>{title}</a>
@@ -23,8 +26,6 @@ const { postImage, href, title, description, publishDate } = Astro.props;
   aside {
     border: 1px solid var(--primary-color);
     box-shadow: -5px 5px 0 var(--primary-color-transparent);
-    display: grid;
-    grid-template-rows: 0.8fr 1fr;
   }
 
   .post-image-container {
