@@ -1,25 +1,24 @@
 ---
 const { noImage=false, href, title, description, publishDate } = Astro.props;
 ---
-
 <aside>
-  {
-    !noImage && 
-    <figure class="post-image-container">
-      <div class="post-image"><slot name="postImage" /></div>
-    </figure>
-  }
-  <div class="post-item">
-    <h3>
-      <a href={href}>{title}</a>
-    </h3>
-    <p>{description}</p>
-    <div class="post-item-footer">
-      <span class="post-item-date">— {publishDate}</span>
-      <span class="post-item-read"><a href={href}>Read</a></span>
+    {
+      !noImage && 
+      <figure class="post-image-container">
+        <div class="post-image"><slot name="postImage" /></div>
+      </figure>
+    }
+    <div class="post-item">
+      <h3>
+        <a href={href}>{title}</a>
+      </h3>
+      <p>{description}</p>
+      <div class="post-item-footer">
+        <span class="post-item-date">— {publishDate}</span>
+        <span class="post-item-read"><a href={href}>Read</a></span>
+      </div>
+      <slot />
     </div>
-    <slot />
-  </div>
 </aside>
 
 <style>

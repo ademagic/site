@@ -27,6 +27,7 @@ const archivedPosts = allPosts.map((post) => {
     <p>You can still find these posts by <a href="/tags">browsing by tag</a>.</p>
     <div class="grid">
       {archivedPosts.map((post) => {
+        if (post === undefined) return;
         const href = `/blog/${post.slug}`;
         if (post.data.tags.includes('release')) return false;
         const postImage = (post.data.socialImage !== undefined) ? post.data.socialImage : 'assets/social.jpg';
@@ -34,13 +35,12 @@ const archivedPosts = allPosts.map((post) => {
 
         return (
           <BlogCard
+            noImage
             href={href}
             title={post.data.title}
             description={post.data.description}
             publishDate={`${post.data.publishDate} (${diffYear(new Date(post.data.publishDate), new Date())} years old)`}
-          >
-            <img class="post-image" slot="postImage" src={`/${postImage}`} alt={socialImageAlt} />
-          </BlogCard>
+          />
         )
       })}
     </div>
