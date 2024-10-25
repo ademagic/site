@@ -22,7 +22,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const permalink = `${Astro.site.href}releases/${slug}`;
+const permalink = `${Astro?.site?.href}releases/${slug}`;
 
 const {Content} = await post.render();
 ---

@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Contact me';
 const description = 'All the places where you can get in touch with me.';
-const permalink = `${Astro.site.href}contact`;
+const permalink = `${Astro?.site?.href}contact`;
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="contact">

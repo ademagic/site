@@ -6,7 +6,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Hi there!';
 const description = 'UI Developer from Sydney, Australia.';
-const permalink = Astro.site.href;
+const permalink = Astro?.site?.href;
 
 let allPosts = await getCollection('blog');
 const NUMBER_OF_LATEST_POSTS = 3;

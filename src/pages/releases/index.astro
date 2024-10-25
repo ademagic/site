@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = 'Releases';
 const description = 'A somewhat curated written history of this website.';
-const permalink = `${Astro.site.href}releases`;
+const permalink = `${Astro?.site?.href}releases`;
 
 let allReleases = await getCollection('releases');
 

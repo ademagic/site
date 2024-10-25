@@ -11,7 +11,7 @@ export interface Props {
 const { title, description, permalink, socialImage } = Astro.props;
 
 const socialAsset = (socialImage !== undefined) ? socialImage : 'assets/social.jpg';
-const socialUrl = Astro.site.href + socialAsset;
+const socialUrl = Astro?.site?.href + socialAsset;
 const fullTitle = `${title} | Miko Ademagic`;
 
 ---
@@ -24,7 +24,7 @@ const fullTitle = `${title} | Miko Ademagic`;
     rel="alternate"
     type="application/rss+xml"
     title="Miko Ademagic"
-    href={new URL("rss.xml", Astro.site)}
+    href={new URL("rss.xml", Astro?.site?)}
 />
 <meta name="googlebot" content="noindex">
 

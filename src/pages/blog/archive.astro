@@ -7,7 +7,7 @@ import {diffMonth, diffYear} from '../../utils/dateDiff';
 
 const title = 'Blog Archive';
 const description = 'Tech can age very quickly. Any post over 2 years old is taken off the blog page and retires here for your nostalgic reading enjoyment.';
-const permalink = `${Astro.site.href}blog/archive`;
+const permalink = `${Astro?.site?.href}blog/archive`;
 
 let allPosts = await getCollection('blog');
 allPosts = allPosts.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf());

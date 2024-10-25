@@ -10,7 +10,7 @@ import {diffMonth} from '../../utils/dateDiff';
 
 const title = 'Blog';
 const description = 'I mainly write about web development, management, and working in tech. But maybe you\'ll find something else, who knows?';
-const permalink = `${Astro.site.href}blog`;
+const permalink = `${Astro?.site?.href}blog`;
 
 let allPosts = await getCollection('blog');
 

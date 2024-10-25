@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Credits';
 const description = 'This site was built with some great tools, some of them open-source. You can find a list on this page.';
-const permalink = `${Astro.site.href}credits`;
+const permalink = `${Astro?.site?.href}credits`;
 
 let allReleases = await getCollection('releases');
 const latestRelease = allReleases.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf()).find(a => a.data.tags.includes('release'));

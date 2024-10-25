@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const postList = Astro.props.postList.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf())
 const title = `Tag: ${slug}`
-const permalink = `${Astro.site.href}tags/${slug}`;
+const permalink = `${Astro?.site?.href}tags/${slug}`;
 ---
 
 <BaseLayout title={title} description={`${postList.length} posts tagged with ${slug}`} permalink={permalink} current="blog">
