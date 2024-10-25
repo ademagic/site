@@ -4,7 +4,7 @@ import '../styles/global.css'
 export interface Props {
   title: string;
   description: string;
-  permalink: string;
+  permalink: string | undefined;
   socialImage?: string;
 }
 
@@ -24,7 +24,7 @@ const fullTitle = `${title} | Miko Ademagic`;
     rel="alternate"
     type="application/rss+xml"
     title="Miko Ademagic"
-    href={new URL("rss.xml", Astro?.site?)}
+    href={new URL("rss.xml", Astro?.site)}
 />
 <meta name="googlebot" content="noindex">
 
