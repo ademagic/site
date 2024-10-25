@@ -10,9 +10,9 @@ const response = await fetch(`http://ws.audioscrobbler.com/2.0?method=user.getre
 const data = await response.json();
 const track = data.recenttracks.track[0];
 
-const readingCount = 244
-const plusReadingCount = 6
-const minusReadingCount = 1
+const readingCount = 249
+const plusReadingCount = 9
+const minusReadingCount = 4
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
@@ -34,10 +34,11 @@ const minusReadingCount = 1
       </div>
     </div>
     <hr/>
-    <h2>September</h2>
-    <span class="date">16/09/24</span>
+    <h2>October</h2>
+    <span class="date">25/10/24</span>
     <ul>
-      <li>Spring has sprung</li>
+      <li>I've really gotta redo this now page.</li>
+      <li>Built my second ever Astro site, learning some different practices. Using Tailwind too, it's pretty wild.</li>
     </ul>
   </div>
 </BaseLayout>
