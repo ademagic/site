@@ -10,9 +10,9 @@ const response = await fetch(`http://ws.audioscrobbler.com/2.0?method=user.getre
 const data = await response.json();
 const track = data.recenttracks.track[0];
 
-const readingCount = 249
-const plusReadingCount = 9
-const minusReadingCount = 4
+const readingCount = 238
+const plusReadingCount = 10
+const minusReadingCount = 21
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
@@ -27,18 +27,17 @@ const minusReadingCount = 4
           <ul class="nowlist">
             {track && <li>🎧:<a href={track.url}>{track.artist?.name} - {track.name}</a></li>}
             <li>📚: <a href="/blog/chipping-away-at-my-reading-list">{readingCount} <span class="sml plus">+{plusReadingCount}</span> <span class="sml minus">-{minusReadingCount}</span></a></li>
-            <li>📖: <a href="https://amzn.asia/d/9Vyk7r2">Engineering Management for the Rest of Us - Sarah Drasner <span class="sml">22%</span></a></li>
+            <li>📖: <a href="https://amzn.asia/d/9Vyk7r2">Engineering Management for the Rest of Us - Sarah Drasner <span class="sml">25%</span></a></li>
             <li>🎸: <a href="https://open.spotify.com/track/2Mr7sMG4UAPK7q18m05pjM?si=f21b08d3a45e4d92">Francisco Tarrega - Gran Vals</a></li>
           </ul>
         </Card>
       </div>
     </div>
     <hr/>
-    <h2>October</h2>
-    <span class="date">25/10/24</span>
+    <h2>January</h2>
+    <span class="date">10/01/25</span>
     <ul>
-      <li>I've really gotta redo this now page.</li>
-      <li>Built my second ever Astro site, learning some different practices. Using Tailwind too, it's pretty wild.</li>
+      <li>2025 is set to be a big one. Happy New Year!</li>
     </ul>
   </div>
 </BaseLayout>
