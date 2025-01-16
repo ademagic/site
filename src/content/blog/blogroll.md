@@ -26,7 +26,7 @@ tags:
 
 I keep lists of a lot of things. Amongst them was one I called "nice websites", where I kept pages that I liked and drew inspiration from, and had some features in it that I wanted to build or emulate in my own work. The list was over 10 years old (though still maintained), and contained over 150 links. I decided I needed to clean it up and make it public, both as a way to publicise people's hard work, and to play around with Astro's [content collections](https://docs.astro.build/en/guides/content-collections/) some more.
 
-It was getting too complex. I looked for a more common feature or design pattern to showcase websites that I liked, and link back to them. I remembered that webrings were a thing, but weren't quite what I was looking for. Then I came across a post called [https://manuelmoreale.com/the-social-web](the social web) by Manuel Moreale, which coincidentally took me to his [blogroll](https://manuelmoreale.com/blogroll). And here we are.
+It was getting too complex. I looked for a more common feature or design pattern to showcase websites that I liked, and link back to them. I remembered that webrings were a thing, but weren't quite what I was looking for. Then I came across a post called [the social web](https://manuelmoreale.com/the-social-web) by Manuel Moreale, which coincidentally took me to his [blogroll](https://manuelmoreale.com/blogroll). And here we are.
 
 ## What are they?
 Blogrolls are a simple list of blogs that the site owner curates to whatever degree they like. Similar to webrings, they were a method to help readers discover similar content on other websites, if they enjoyed the website they're on. Usually, there'd be no automation involved either. No algorithms, just people lifting people.

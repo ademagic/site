@@ -30,8 +30,6 @@ const archivedPosts = allPosts.map((post) => {
         if (post === undefined) return;
         const href = `/blog/${post.slug}`;
         if (post.data.tags.includes('release')) return false;
-        const postImage = (post.data.socialImage !== undefined) ? post.data.socialImage : 'assets/social.jpg';
-        const socialImageAlt = (post.data.socialImageAlt !== undefined) ? post.data.socialImageAlt : `alt text is missing for ${post.data.title} social image. Please let me know.`;
 
         return (
           <BlogCard
