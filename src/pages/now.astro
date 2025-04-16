@@ -6,10 +6,9 @@ const title = 'Now';
 const description = 'What I am focusing on at this point in my life. Based on nownownow.com';
 const permalink = `${Astro?.site?.href}now`;
 
-const response = await fetch(`http://ws.audioscrobbler.com/2.0?method=user.getrecenttracks&user=mikoa&api_key=af6e017e437cc163f02c30b67ef7caa9&format=json&limit=10&extended=1`);
+const response = await fetch(`http://ws.audioscrobbler.com/2.0?method=user.getrecenttracks&user=mikoa&api_key=af6e017e437cc163f02c30b67ef7caa9&format=json&limit=1&extended=1`);
 const data = await response.json();
 const track = data.recenttracks.track[0];
-// console.log(data.recenttracks.track);
 
 const readingCount = 238
 const plusReadingCount = 10
@@ -35,20 +34,6 @@ const minusReadingCount = 21
       </div>
     </div>
     <hr/>
-    <div class="bento">
-      <div class="one"><Card>hello</Card></div>
-      <div class="lastfm">
-        <Card>
-          {track && <h3>🎧:<a href={track.url}>{track.artist?.name} - {track.name}</a></h3>}</Card>
-      </div>
-      <div class="four"><Card>hello</Card></div>
-      <div class="five"><Card>hello</Card></div>
-      <div class="six"><Card>hello</Card></div>
-      <div class="seven"><Card>hello</Card></div>
-      <div class="eight"><Card>hello</Card></div>
-      <div class="nine"><Card>hello</Card></div>
-      <div class="ten"><Card>hello</Card></div>
-    </div>
     <h2>January</h2>
     <span class="date">10/01/25</span>
     <ul>
@@ -70,28 +55,6 @@ const minusReadingCount = 21
 
   .right {
     margin-left: 3em;
-  }
-
-  .bento {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-  }
-
-  .bento h3{
-    margin-top: 0;
-  }
-
-  .one {
-    grid-column-start: 1;
-    grid-column-end: 6;
-  }
-
-  .lastfm {
-    grid-column-start: 6;
-    grid-column-end: 10;
   }
 
   .nowlist {

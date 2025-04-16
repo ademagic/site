@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogRollItem from '../components/BlogRollItem.astro';
+import Foreword from '../components/Foreword.astro';
 
 const title = 'Blogroll';
 const description = 'A list of blogs and websites I frequent or find interesting';
@@ -35,7 +36,11 @@ const sources = unroll('sources');
     <h1>Blogroll</h1>
     <p>Here's <a href="/blog/blogroll">a list of blogs I frequent or find interesting</a>. Curated by me.</p>
     <p>If you want to be on this list (or see something that needs changing), please <a href="/contact">reach out</a>.</a></p>
-    {
+    <Foreword>
+        Unfortunately, I've broken this with a recent half-assed upgrade to Astro.<br/>
+        <strong>Fix coming soon.</strong> Still, <a href="/contact">reach out</a> if you want to be on here.
+    </Foreword>
+{
         local &&
         <div>
             <h2>Local</h2>
