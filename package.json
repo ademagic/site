@@ -2,6 +2,7 @@
   "name": "ademagic.com",
   "version": "1.0.0",
   "description": "Miko Ademagic's Home on the Internet, built on Astro",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
