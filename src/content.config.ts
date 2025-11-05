@@ -1,25 +1,19 @@
-import { z, defineCollection } from 'astro:content';
-import { rssSchema } from '@astrojs/rss';
+// 1. Import utilities from `astro:content`
+import { defineCollection, z } from 'astro:content'
 
-const blogCollection = defineCollection({
-  schema: rssSchema,
-});
+// 2. Import loader(s)
+import { glob } from 'astro/loaders'
 
-const releasesCollection = defineCollection({
-});
-
-const blogRollCollection = defineCollection({
+// 3. Define your collection(s)
+const projects = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/projects' }),
   schema: z.object({
     title: z.string(),
-    url: z.string(),
-    dateAdded: z.string(),
-    description: z.string().optional(),
-    rss: z.string().optional(),
-  })
-});
+    author: z.string(),
+    description: z.string(),
+    tags: z.array(z.string()).default([]),
+  }),
+})
 
-export const collections = {
-  blog: blogCollection,
-  releases: releasesCollection,
-  blogroll: blogRollCollection,
-};
+// 4. Export a single `collections` object to register you collection(s)
+export const collections = { projects }
