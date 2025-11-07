@@ -13,27 +13,6 @@
     "preview": "astro preview",
     "deploy": "astro build && cp -r dist/ ../ademagic.github.io && cd ../ademagic.github.io/ && git add .; timestamp=$(date \"+%s\") &&  git commit -m \"deployment $timestamp\" && git push origin master"
   },
-  "keywords": [
-    "astro",
-    "astro-component",
-    "astro-components",
-    "accessible",
-    "accessibility",
-    "a11y",
-    "wcag",
-    "responsive",
-    "ui-library",
-    "ui-components",
-    "blog",
-    "portfolio"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/incluud/accessible-astro-starter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/incluud/accessible-astro-starter/issues"
-  },
   "devDependencies": {
     "@astrojs/mdx": "^4.3.5",
     "@astrojs/partytown": "^2.1.4",
