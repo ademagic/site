@@ -27,18 +27,20 @@ interface Props {
   author?: string
 }
 
-const { title, description, url, image, author = 'Mark Teekman' } = Astro.props
+const { title, description, url, image, author = 'Miko Ademagic' } = Astro.props
 
-let subtitle = 'Accessible Astro Starter'
+let subtitle = 'Miko Ademagic'
+
+let fullTitle = `${title} | ${subtitle}`
 ---
 
 <!-- general meta -->
-<meta name="title" content={`${title} - ${subtitle}`} />
+<meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
 <meta name="author" content={author} />
 
 <!-- open graph -->
-<meta property="og:title" content={`${title} - ${subtitle}`} />
+<meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={url} />
@@ -46,5 +48,12 @@ let subtitle = 'Accessible Astro Starter'
 
 <!-- twitter card -->
 
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={url} />
+<meta property="twitter:title" content={fullTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={`${Astro.site}${image}`} />
+
 <!-- page title -->
-<title>{title} - {subtitle}</title>
+<title>{fullTitle}</title>
