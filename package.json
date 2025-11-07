@@ -1,16 +1,17 @@
 {
-  "name": "accessible-astro-starter",
-  "description": "An Accessible Starter Theme for Astro including several accessibility features and tools to help you build faster.",
-  "version": "4.3.0",
-  "author": "Incluud",
+  "name": "ademagic.com",
+  "description": "Miko Ademagic's Home on the Internet, built on Astro",
+  "version": "2.0.0",
+  "author": "Miko Ademagic",
   "license": "MIT",
   "type": "module",
-  "homepage": "https://accessible-astro-starter.incluud.dev/",
+  "homepage": "https://miko.ademagic.com",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy": "astro build && cp -r dist/ ../ademagic.github.io && cd ../ademagic.github.io/ && git add .; timestamp=$(date \"+%s\") &&  git commit -m \"deployment $timestamp\" && git push origin master"
   },
   "keywords": [
     "astro",
