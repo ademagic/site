@@ -9,7 +9,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://astro.build/config
 export default defineConfig({
   compressHTML: true,
-  site: 'https://accessible-astro-starter.incluud.dev',
+  site: 'https://miko.ademagic.com',
   integrations: [compress(), icon(), mdx(), sitemap()],
   vite: {
     css: {
