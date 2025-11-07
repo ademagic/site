@@ -1,30 +1,22 @@
 ---
 import { Link } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
-import { Image } from 'astro:assets'
 
 /**
  * Hero Component
  *
  * @description A component that displays a hero section with a title, description, and image
  */
-interface Props {
-  /**
-   * The source URL for the image
-   */
-  src?: string
-}
-
-const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
 ---
 
 <section class="hero my-24">
   <div class="container">
-    <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
+    <div>
       <div class="flex flex-col items-center gap-8 md:items-start">
         <h1 class="text-center text-6xl md:text-left lg:text-8xl">
-          <slot><span class="text-gradient">Accessible</span> Starter for Astro</slot>
+          <slot>Hi, I'm <span class="text-gradient">Miko</span>.</slot>
         </h1>
+        <p class="text-center text-2xl md:text-left lg:text-4xl">I'm a <span class="text-gradient">Design-focused UI developer</span> from Sydney, Australia.<br/>I like working on Design Systems, UX, Accessibility and generally <span class="text-gradient">making good things for good people</span>.</p>
         <div class="flex flex-col gap-3 min-[500px]:flex-row">
           <Link
             href="https://github.com/incluud/accessible-astro-starter"
@@ -48,7 +40,6 @@ const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
           </Link>
         </div>
       </div>
-      <Image class="hidden lg:block" src={src} alt="" decoding="async" width={800} height={600} loading="eager" />
     </div>
   </div>
 </section>
@@ -62,7 +53,7 @@ const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
     background: linear-gradient(
       315deg,
       light-dark(var(--color-primary-300), var(--color-secondary-100)) 25%,
-      light-dark(var(--color-secondary-300), var(--color-primary-200))
+      light-dark(var(--color-secondary-200), var(--color-primary-200))
     );
     background-clip: border-box;
     -webkit-background-clip: text;
