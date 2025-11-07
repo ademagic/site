@@ -3,6 +3,25 @@ import Navigation from '../components/Navigation.astro'
 import { DarkMode, Link, SkipLink } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
 
+const navItems = [
+  {
+    href: '/',
+    label: 'Home',
+  },
+  {
+    href: '/about',
+    label: 'About',
+  },
+  {
+    href: '/blog',
+    label: 'Blog',
+  },
+  {
+    href: '/now',
+    label: 'Now',
+  }
+];
+
 /**
  * Header Component
  *
@@ -13,18 +32,13 @@ import { Icon } from 'astro-icon/components'
 <header>
   <SkipLink />
   <Navigation>
-    <li class="menu-item">
-      <Link href="/">Home</Link>
-    </li>
-    <li class="menu-item">
-      <Link href="/about/">About</Link>
-    </li>
-    <li class="menu-item">
-      <Link href="/blog/">Blog</Link>
-    </li>
-    <li class="menu-item">
-      <Link href="/now/">Now</Link>
-    </li>
+    {
+      navItems.map(item => (
+        <li class="menu-item">
+          <Link href={item.href}>{item.label}</Link>
+        </li>
+      ))
+    }
     <li class="menu-item type-icon animate-rotate">
       <DarkMode>
         <Icon aria-hidden="true" name="lucide:moon" slot="light" />
