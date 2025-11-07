@@ -18,8 +18,11 @@ interface Props {
 
 const { loading = 'eager' }: Props = Astro.props
 ---
-
+<style>
+  svg rect {
+    fill: var(--primary-color);
+  }
+</style>
 <Link href="/" class="flex items-center gap-2">
-  <Image src={logo} alt="Accessible Astro Logo" width="47" height="37" loading={loading} />
-  <span class="font-bold">Accessible Astro</span>
+  <Image src={logo} alt="Miko Ademagic's Logo" width="47" height="37" loading={loading} />
 </Link>
